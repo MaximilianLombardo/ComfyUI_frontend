@@ -6,8 +6,8 @@
     :class="{ dropzone: isDropZone, 'dropzone-active': isDroppable }"
   >
     <img
-      src="/assets/images/comfy-logo-mono.svg"
-      alt="ComfyUI Logo"
+      src="/assets/images/biokit-labs-icon.svg"
+      alt="BioKit Labs Logo"
       class="comfyui-logo ml-2 app-drag h-6"
     />
     <CommandMenubar />
@@ -18,6 +18,18 @@
     <Actionbar />
     <CurrentUserButton class="flex-shrink-0" />
     <BottomPanelToggleButton class="flex-shrink-0" />
+
+    <!-- Theme toggle button -->
+    <Button
+      v-tooltip="{ value: 'Toggle Theme', showDelay: 300 }"
+      class="flex-shrink-0"
+      icon="pi pi-moon"
+      severity="secondary"
+      text
+      aria-label="Toggle Theme"
+      @click="toggleTheme"
+    />
+
     <Button
       v-tooltip="{ value: $t('menu.hideMenu'), showDelay: 300 }"
       class="flex-shrink-0"
@@ -53,6 +65,7 @@ import CurrentUserButton from '@/components/topbar/CurrentUserButton.vue'
 import WorkflowTabs from '@/components/topbar/WorkflowTabs.vue'
 import { app } from '@/scripts/app'
 import { useSettingStore } from '@/stores/settingStore'
+import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 import { useWorkspaceStore } from '@/stores/workspaceStore'
 import {
   electronAPI,
@@ -63,6 +76,7 @@ import {
 
 const workspaceState = useWorkspaceStore()
 const settingStore = useSettingStore()
+const colorPaletteStore = useColorPaletteStore()
 
 const workflowTabsPosition = computed(() =>
   settingStore.get('Comfy.Workflow.WorkflowTabsPosition')
@@ -100,6 +114,17 @@ onMounted(() => {
     })
   }
 })
+
+function toggleTheme() {
+  // Toggle between light and dark theme
+  const currentTheme = colorPaletteStore.completedActivePalette
+  const newThemeId = currentTheme.light_theme
+    ? 'dark' // Switch to dark theme
+    : 'light' // Switch to light theme
+
+  // Use the correct API to change the theme
+  void settingStore.set('Comfy.ColorPalette', newThemeId)
+}
 </script>
 
 <style scoped>
@@ -136,6 +161,6 @@ onMounted(() => {
 }
 
 .dark-theme .comfyui-logo {
-  filter: invert(1);
+  filter: none;
 }
 </style>

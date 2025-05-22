@@ -1,7 +1,7 @@
 <template>
   <Menubar
     :model="translatedItems"
-    class="top-menubar border-none p-0 bg-transparent"
+    class="top-menubar border-none p-0 bg-transparent ml-2"
     :pt="{
       rootList: 'gap-0 flex-nowrap w-auto',
       submenu: `dropdown-direction-${dropdownDirection}`,

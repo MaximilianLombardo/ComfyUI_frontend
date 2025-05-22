@@ -12,6 +12,7 @@ import Tooltip from 'primevue/tooltip'
 import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
 
+import '@/assets/css/biokit-theme.css'
 import '@/assets/css/style.css'
 import { FIREBASE_CONFIG } from '@/config/firebase'
 import router from '@/router'
@@ -21,8 +22,11 @@ import { i18n } from './i18n'
 
 const ComfyUIPreset = definePreset(Aura, {
   semantic: {
-    // @ts-expect-error fixme ts strict error
-    primary: Aura['primitive'].blue
+    primary: {
+      color: '#FF5335',
+      500: '#FF5335',
+      600: '#D83100'
+    }
   }
 })
 
@@ -68,3 +72,4 @@ app
     modules: [VueFireAuth()]
   })
   .mount('#vue-app')
+// test

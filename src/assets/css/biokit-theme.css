@@ -1,0 +1,71 @@
+/* Base theme (light mode) */
+:root {
+  --fg-color: #000000 !important;
+  --bg-color: #FFFFFF !important;
+  --comfy-menu-bg: #F8F8F8 !important;
+  --comfy-menu-secondary-bg: #F0F0F0 !important;
+  --comfy-input-bg: #F8F8F8 !important;
+  --input-text: #000000 !important;
+  --descrip-text: #666666 !important;
+  --drag-text: #B0B0B0 !important;
+  --error-text: #D83100 !important;
+  --border-color: #B0B0B0 !important;
+  --tr-even-bg-color: #F8F8F8 !important;
+  --tr-odd-bg-color: #FFFFFF !important;
+  --primary-bg: #FF5335 !important;
+  --primary-fg: #FFFFFF !important;
+  --primary-hover-bg: #FF7755 !important;
+  --primary-hover-fg: #FFFFFF !important;
+  --content-bg: #F0F0F0 !important;
+  --content-fg: #000000 !important;
+  --content-hover-bg: #E0E0E0 !important;
+  --content-hover-fg: #000000 !important;
+  --sidebar-bg: #F0F0F0 !important;
+  --sidebar-fg: #333333 !important;
+  --sidebar-selected: #FF5335 !important;
+  --bar-shadow: 2px 0 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dark theme */
+.dark-theme {
+  --fg-color: #FFFFFF !important;
+  --bg-color: #000000 !important;
+  --comfy-menu-bg: #111111 !important;
+  --comfy-menu-secondary-bg: #000000 !important; /* True black for sidebar */
+  --comfy-input-bg: #222222 !important;
+  --input-text: #FFFFFF !important;
+  --descrip-text: #B0B0B0 !important;
+  --drag-text: #999999 !important;
+  --content-bg: #333333 !important;
+  --content-fg: #FFFFFF !important;
+  --content-hover-bg: #444444 !important;
+  --content-hover-fg: #FFFFFF !important;
+  --border-color: #444444 !important;
+  --tr-even-bg-color: #111111 !important;
+  --tr-odd-bg-color: #222222 !important;
+  --sidebar-bg: #000000 !important;
+  --sidebar-fg: #DDDDDD !important;
+  --sidebar-selected: #FF5335 !important;
+  --bar-shadow: 2px 0 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Specific sidebar styling */
+.side-tool-bar-container {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-fg) !important;
+  box-shadow: var(--bar-shadow) !important;
+}
+
+.side-bar-button-selected .side-bar-button-icon {
+  color: var(--sidebar-selected) !important;
+}
+
+.comfyui-body-left .side-bar-button.side-bar-button-selected,
+.comfyui-body-left .side-bar-button.side-bar-button-selected:hover {
+  border-left-color: var(--sidebar-selected) !important;
+}
+
+.comfyui-body-right .side-bar-button.side-bar-button-selected,
+.comfyui-body-right .side-bar-button.side-bar-button-selected:hover {
+  border-right-color: var(--sidebar-selected) !important;
+}

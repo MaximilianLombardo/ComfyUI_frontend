@@ -84,6 +84,14 @@ const getTabTooltipSuffix = (tab: SidebarTabExtension) => {
 
   --sidebar-width: 4rem;
   --sidebar-icon-size: 1.5rem;
+
+  /* Add a subtle shadow to separate sidebar from content */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .side-tool-bar-container {
+  background-color: #000000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .side-tool-bar-container.small-sidebar {

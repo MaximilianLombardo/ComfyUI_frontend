@@ -57,6 +57,11 @@ const shouldShowBadge = computed(() => !!overlayValue.value)
 .side-bar-button-selected .side-bar-button-icon {
   font-size: var(--sidebar-icon-size) !important;
   font-weight: bold;
+  color: #ff5335 !important; /* BioKit orange for selected icons */
+}
+
+.dark-theme .side-bar-button-selected .side-bar-button-icon {
+  color: #ff5335 !important; /* Ensure BioKit orange in dark mode too */
 }
 </style>
 
@@ -69,11 +74,25 @@ const shouldShowBadge = computed(() => !!overlayValue.value)
 
 .comfyui-body-left .side-bar-button.side-bar-button-selected,
 .comfyui-body-left .side-bar-button.side-bar-button-selected:hover {
-  border-left: 4px solid var(--p-button-text-primary-color);
+  border-left: 4px solid #ff5335; /* BioKit orange border */
 }
 
 .comfyui-body-right .side-bar-button.side-bar-button-selected,
 .comfyui-body-right .side-bar-button.side-bar-button-selected:hover {
-  border-right: 4px solid var(--p-button-text-primary-color);
+  border-right: 4px solid #ff5335; /* BioKit orange border */
+}
+
+/* Add hover effect for better UX */
+.side-bar-button:hover:not(.side-bar-button-selected) {
+  background-color: rgba(255, 83, 53, 0.1); /* Subtle BioKit orange hover */
+}
+
+.dark-theme .side-bar-button:hover:not(.side-bar-button-selected) {
+  background-color: rgba(
+    255,
+    83,
+    53,
+    0.2
+  ); /* Slightly more visible in dark mode */
 }
 </style>
