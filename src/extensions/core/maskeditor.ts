@@ -88,7 +88,7 @@ var styles = `
   .maskEditor_sidePanelTitle {
     text-align: center;
     font-size: 15px;
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     color: var(--descrip-text);
     margin-top: 10px;
   }
@@ -220,7 +220,7 @@ var styles = `
     border: 1px solid var(--border-color);
     background-color: rgba(0, 0, 0, 0.2);
     color: var(--input-text);
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     font-size: 15px;
     pointer-events: auto;
     transition: background-color border 0.1s;
@@ -236,7 +236,7 @@ var styles = `
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border-color);
     color: var(--input-text);
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     font-size: 15px;
     pointer-events: auto;
     transition: background-color 0.1s;
@@ -256,7 +256,7 @@ var styles = `
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border-color);
     color: var(--input-text);
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     font-size: 15px;
     pointer-events: auto;
     transition: background-color border 0.1s;
@@ -447,7 +447,7 @@ var styles = `
     border: 1px solid var(--p-form-field-border-color);
     border-radius: 10px;
     color: var(--input-text);
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     pointer-events: auto;
     transition: 0.1s;
     width: 60px;
@@ -463,7 +463,7 @@ var styles = `
     border: 1px solid var(--p-form-field-border-color);
     border-radius: 10px;
     color: var(--input-text);
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     pointer-events: auto;
     transition: 0.1s;
     width: 60px;
@@ -694,7 +694,7 @@ var styles = `
   .maskEditor_sidePanelSubTitle {
     text-align: left;
     font-size: 12px;
-    font-family: sans-serif;
+    font-family: var(--biokit-font-body);
     color: var(--descrip-text);
   }
 

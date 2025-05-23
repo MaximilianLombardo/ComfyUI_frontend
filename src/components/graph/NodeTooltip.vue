@@ -136,7 +136,7 @@ useEventListener(window, 'click', hideTooltip)
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   color: var(--input-text);
-  font-family: sans-serif;
+  font-family: var(--biokit-font-body);
   left: 0;
   max-width: 30vw;
   padding: 4px 8px;

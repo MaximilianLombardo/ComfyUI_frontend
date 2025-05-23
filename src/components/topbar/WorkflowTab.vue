@@ -134,6 +134,17 @@ usePragmaticDroppable(tabGetter, {
 </script>
 
 <style scoped>
+.workflow-tab {
+  font-family: var(--biokit-font-mono);
+}
+
+.workflow-label {
+  font-size: 0.75rem !important; /* 12px if base is 16px - override text-sm */
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
 .status-indicator {
   @apply absolute font-bold;
   font-size: 1.5rem;

@@ -60,8 +60,70 @@ body {
   max-height: -webkit-fill-available;
   min-width: -webkit-fill-available;
   max-width: -webkit-fill-available;
-  font-family: Arial, sans-serif;
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-regular);
+  font-weight: var(--biokit-font-weight-regular);
+  line-height: var(--biokit-line-height-body);
 }
+
+/* Global Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--biokit-font-heading);
+  font-weight: var(--biokit-font-weight-semibold);
+  line-height: var(--biokit-line-height-heading);
+  letter-spacing: var(--biokit-letter-spacing-heading);
+  color: var(--biokit-text-primary);
+}
+
+/* Apply Inter font to common UI elements, excluding terminal-specific elements */
+button:not(.terminal *),
+input:not(.terminal *),
+select:not(.terminal *),
+textarea:not(.terminal *),
+.p-component:not(.terminal *),
+.dialog-content,
+.settings-container,
+.form-label,
+.search-box {
+  font-family: var(--biokit-font-body);
+  font-size: 0.875rem; /* 14px if base is 16px */
+  font-weight: 300; /* Light weight - thinner strokes */
+}
+
+h1 {
+  font-size: var(--biokit-font-size-h1);
+  font-weight: var(--biokit-font-weight-bold);
+  margin-bottom: var(--biokit-spacing-xl);
+}
+
+h2 {
+  font-size: var(--biokit-font-size-h2);
+  margin-bottom: var(--biokit-spacing-lg);
+}
+
+h3 {
+  font-size: var(--biokit-font-size-h3);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+h4 {
+  font-size: var(--biokit-font-size-h4);
+  font-weight: var(--biokit-font-weight-medium);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+h5 {
+  font-size: var(--biokit-font-size-large);
+  font-weight: var(--biokit-font-weight-medium);
+  margin-bottom: var(--biokit-spacing-sm);
+}
+
+h6 {
+  font-size: var(--biokit-font-size-regular);
+  font-weight: var(--biokit-font-weight-medium);
+  margin-bottom: var(--biokit-spacing-sm);
+}
+
 
 .comfy-multiline-input {
   background-color: var(--comfy-input-bg);
@@ -154,8 +216,8 @@ body {
   transform: translate(-50%, -50%);
   overflow: hidden;
   justify-content: center;
-  font-family: monospace;
-  font-size: 15px;
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
 }
 
 .comfy-modal-content {
@@ -176,7 +238,7 @@ body {
 }
 
 .comfy-menu {
-  font-size: 15px;
+  font-size: var(--biokit-font-size-small);
   position: absolute;
   top: 50%;
   right: 0;
@@ -188,7 +250,7 @@ body {
   align-items: center;
   color: var(--descrip-text);
   background-color: var(--comfy-menu-bg);
-  font-family: sans-serif;
+  font-family: var(--biokit-font-body);
   padding: 10px;
   border-radius: 0 8px 8px 8px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
@@ -287,8 +349,8 @@ span.drag-handle {
   vertical-align: middle;
   margin-top: -0.4em;
   margin-left: -0.2em;
-  font-size: 12px;
-  font-family: sans-serif;
+  font-size: var(--biokit-font-size-tiny);
+  font-family: var(--biokit-font-body);
   letter-spacing: 2px;
   color: var(--drag-text);
   text-shadow: 1px 0 1px black;
@@ -348,7 +410,7 @@ button.comfy-queue-btn {
 .comfy-modal.comfy-settings,
 .comfy-modal.comfy-manage-templates {
   text-align: center;
-  font-family: sans-serif;
+  font-family: var(--biokit-font-body);
   color: var(--descrip-text);
   z-index: 99;
 }
@@ -411,8 +473,8 @@ button.comfy-queue-btn {
 }
 
 .graphdialog .name {
-  font-size: 14px;
-  font-family: sans-serif;
+  font-size: var(--biokit-font-size-small);
+  font-family: var(--biokit-font-body);
   color: var(--descrip-text);
 }
 
@@ -452,7 +514,7 @@ dialog::backdrop {
 }
 
 .comfy-dialog.comfy-modal {
-  font-family: Arial, sans-serif;
+  font-family: var(--biokit-font-body);
   border-color: var(--bg-color);
   box-shadow: none;
   border: 2px solid var(--border-color);
@@ -482,7 +544,7 @@ dialog::backdrop {
 
 .litegraph .dialog {
   z-index: 1;
-  font-family: Arial, sans-serif;
+  font-family: var(--biokit-font-body);
 }
 
 .litegraph .litemenu-entry.has_submenu {

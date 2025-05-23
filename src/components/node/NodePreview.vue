@@ -191,7 +191,7 @@ const truncateDefaultValue = (value: any, charLimit: number = 32): string => {
 
 ._sb_node_preview {
   background-color: var(--comfy-menu-bg);
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--biokit-font-body);
   font-size: small;
   color: var(--descrip-text);
   border: 1px solid var(--descrip-text);
