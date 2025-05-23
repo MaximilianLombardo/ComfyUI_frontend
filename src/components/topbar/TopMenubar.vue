@@ -5,11 +5,7 @@
     class="comfyui-menu flex items-center"
     :class="{ dropzone: isDropZone, 'dropzone-active': isDroppable }"
   >
-    <img
-      src="/assets/images/biokit-labs-icon.svg"
-      alt="BioKit Labs Logo"
-      class="comfyui-logo ml-2 app-drag h-6"
-    />
+    <BioKitLogo size="small" variant="icon" class="ml-2 app-drag" />
     <CommandMenubar />
     <div class="flex-grow min-w-0 app-drag h-full">
       <WorkflowTabs v-if="workflowTabsPosition === 'Topbar'" />
@@ -22,8 +18,8 @@
     <!-- Theme toggle button -->
     <Button
       v-tooltip="{ value: 'Toggle Theme', showDelay: 300 }"
-      class="flex-shrink-0"
-      icon="pi pi-moon"
+      class="flex-shrink-0 biokit-theme-toggle"
+      :icon="themeIcon"
       severity="secondary"
       text
       aria-label="Toggle Theme"
@@ -59,11 +55,13 @@ import Button from 'primevue/button'
 import { computed, onMounted, provide, ref } from 'vue'
 
 import Actionbar from '@/components/actionbar/ComfyActionbar.vue'
+import BioKitLogo from '@/components/common/BioKitLogo.vue'
 import BottomPanelToggleButton from '@/components/topbar/BottomPanelToggleButton.vue'
 import CommandMenubar from '@/components/topbar/CommandMenubar.vue'
 import CurrentUserButton from '@/components/topbar/CurrentUserButton.vue'
 import WorkflowTabs from '@/components/topbar/WorkflowTabs.vue'
 import { app } from '@/scripts/app'
+import { useCommandStore } from '@/stores/commandStore'
 import { useSettingStore } from '@/stores/settingStore'
 import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 import { useWorkspaceStore } from '@/stores/workspaceStore'
@@ -77,9 +75,16 @@ import {
 const workspaceState = useWorkspaceStore()
 const settingStore = useSettingStore()
 const colorPaletteStore = useColorPaletteStore()
+const commandStore = useCommandStore()
 
 const workflowTabsPosition = computed(() =>
   settingStore.get('Comfy.Workflow.WorkflowTabsPosition')
+)
+
+const themeIcon = computed(() =>
+  colorPaletteStore.completedActivePalette.light_theme
+    ? 'pi pi-moon'
+    : 'pi pi-sun'
 )
 const menuSetting = computed(() => settingStore.get('Comfy.UseNewMenu'))
 const betaMenuEnabled = computed(() => menuSetting.value !== 'Disabled')
@@ -115,15 +120,9 @@ onMounted(() => {
   }
 })
 
-function toggleTheme() {
-  // Toggle between light and dark theme
-  const currentTheme = colorPaletteStore.completedActivePalette
-  const newThemeId = currentTheme.light_theme
-    ? 'dark' // Switch to dark theme
-    : 'light' // Switch to light theme
-
-  // Use the correct API to change the theme
-  void settingStore.set('Comfy.ColorPalette', newThemeId)
+async function toggleTheme() {
+  // Use the standard theme toggle command
+  await commandStore.execute('Comfy.ToggleTheme')
 }
 </script>
 
@@ -154,13 +153,25 @@ function toggleTheme() {
   line-height: revert;
 }
 
-.comfyui-logo {
-  user-select: none;
-  cursor: default;
-  filter: invert(0);
+/* BioKit Theme Toggle Button */
+.biokit-theme-toggle {
+  transition: all var(--biokit-duration-normal) var(--biokit-easing-smooth);
 }
 
-.dark-theme .comfyui-logo {
-  filter: none;
+.biokit-theme-toggle:hover {
+  background-color: var(--biokit-bg-secondary) !important;
+}
+
+.biokit-theme-toggle .pi {
+  transition: transform var(--biokit-duration-normal)
+    var(--biokit-easing-smooth);
+}
+
+.biokit-theme-toggle:hover .pi {
+  transform: rotate(15deg);
+}
+
+.biokit-theme-toggle:active .pi {
+  transform: rotate(180deg);
 }
 </style>

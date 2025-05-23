@@ -6,10 +6,6 @@ import {
 } from '@comfyorg/litegraph'
 
 import { useFirebaseAuthActions } from '@/composables/auth/useFirebaseAuthActions'
-import {
-  DEFAULT_DARK_COLOR_PALETTE,
-  DEFAULT_LIGHT_COLOR_PALETTE
-} from '@/constants/coreColorPalettes'
 import { t } from '@/i18n'
 import { api } from '@/scripts/api'
 import { app } from '@/scripts/app'
@@ -463,17 +459,23 @@ export function useCoreCommands(): ComfyCommand[] {
       label: 'Toggle Theme (Dark/Light)',
       versionAdded: '1.3.12',
       function: (() => {
-        let previousDarkTheme: string = DEFAULT_DARK_COLOR_PALETTE.id
-        let previousLightTheme: string = DEFAULT_LIGHT_COLOR_PALETTE.id
+        let previousDarkTheme: string = 'biokit-dark'
+        let previousLightTheme: string = 'biokit-light'
 
         return async () => {
           const settingStore = useSettingStore()
           const theme = colorPaletteStore.completedActivePalette
           if (theme.light_theme) {
-            previousLightTheme = theme.id
+            // If current theme is light and is BioKit, preserve it
+            if (theme.id.startsWith('biokit')) {
+              previousLightTheme = theme.id
+            }
             await settingStore.set('Comfy.ColorPalette', previousDarkTheme)
           } else {
-            previousDarkTheme = theme.id
+            // If current theme is dark and is BioKit, preserve it
+            if (theme.id.startsWith('biokit')) {
+              previousDarkTheme = theme.id
+            }
             await settingStore.set('Comfy.ColorPalette', previousLightTheme)
           }
         }

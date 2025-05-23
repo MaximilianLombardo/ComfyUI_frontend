@@ -1,0 +1,208 @@
+/**
+ * BioKit Design System Variables
+ * Design tokens for the BioKit Labs visual identity
+ */
+
+:root {
+  /* ===== Primary Colors ===== */
+  --biokit-orange: #FF5335;
+  --biokit-orange-hover: #E64A30;
+  --biokit-orange-active: #CC3F2A;
+  --biokit-orange-disabled: rgba(255, 83, 53, 0.4);
+  
+  --biokit-black: #000000;
+  --biokit-white: #FFFFFF;
+  
+  /* ===== Semantic Colors ===== */
+  --biokit-success: #10B981;
+  --biokit-warning: #F59E0B;
+  --biokit-error: #EF4444;
+  --biokit-info: #3B82F6;
+  
+  /* ===== Background Colors - Light Mode ===== */
+  --biokit-bg-primary: #FFFFFF;
+  --biokit-bg-secondary: #F8F8F8;
+  --biokit-bg-tertiary: #F3F3F3;
+  --biokit-bg-elevated: #FFFFFF;
+  
+  /* ===== Text Colors - Light Mode ===== */
+  --biokit-text-primary: #000000;
+  --biokit-text-secondary: #666666;
+  --biokit-text-tertiary: #999999;
+  --biokit-text-inverse: #FFFFFF;
+  
+  /* ===== Border Colors - Light Mode ===== */
+  --biokit-border-primary: #E5E5E5;
+  --biokit-border-secondary: #D0D0D0;
+  --biokit-border-active: var(--biokit-orange);
+  
+  /* ===== Typography ===== */
+  --biokit-font-heading: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --biokit-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Font Sizes */
+  --biokit-font-size-h1: 40px;
+  --biokit-font-size-h2: 32px;
+  --biokit-font-size-h3: 24px;
+  --biokit-font-size-h4: 20px;
+  --biokit-font-size-large: 18px;
+  --biokit-font-size-regular: 16px;
+  --biokit-font-size-small: 14px;
+  --biokit-font-size-tiny: 12px;
+  
+  /* Font Weights */
+  --biokit-font-weight-light: 300;
+  --biokit-font-weight-regular: 400;
+  --biokit-font-weight-medium: 500;
+  --biokit-font-weight-semibold: 600;
+  --biokit-font-weight-bold: 700;
+  
+  /* Line Heights */
+  --biokit-line-height-heading: 1.2;
+  --biokit-line-height-body: 1.5;
+  
+  /* Letter Spacing */
+  --biokit-letter-spacing-heading: -0.03em;
+  --biokit-letter-spacing-body: normal;
+  
+  /* ===== Spacing System ===== */
+  --biokit-spacing-xs: 4px;
+  --biokit-spacing-sm: 8px;
+  --biokit-spacing-md: 16px;
+  --biokit-spacing-lg: 24px;
+  --biokit-spacing-xl: 32px;
+  --biokit-spacing-2xl: 48px;
+  --biokit-spacing-3xl: 64px;
+  
+  /* ===== Border Radius ===== */
+  --biokit-radius-sm: 4px;
+  --biokit-radius-md: 6px;
+  --biokit-radius-lg: 8px;
+  --biokit-radius-xl: 12px;
+  --biokit-radius-full: 9999px;
+  
+  /* ===== Shadows ===== */
+  --biokit-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --biokit-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --biokit-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --biokit-shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --biokit-shadow-active: 0 2px 12px rgba(255, 83, 53, 0.3);
+  
+  /* ===== Animation Durations ===== */
+  --biokit-duration-instant: 50ms;
+  --biokit-duration-fast: 100ms;
+  --biokit-duration-normal: 150ms;
+  --biokit-duration-slow: 200ms;
+  --biokit-duration-slower: 300ms;
+  --biokit-duration-lazy: 400ms;
+  
+  /* ===== Animation Easings ===== */
+  --biokit-easing-linear: linear;
+  --biokit-easing-in: ease-in;
+  --biokit-easing-out: ease-out;
+  --biokit-easing-in-out: ease-in-out;
+  --biokit-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --biokit-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ===== Transitions ===== */
+  --biokit-transition-color: color var(--biokit-duration-normal) var(--biokit-easing-out);
+  --biokit-transition-bg: background-color var(--biokit-duration-normal) var(--biokit-easing-out);
+  --biokit-transition-border: border-color var(--biokit-duration-normal) var(--biokit-easing-out);
+  --biokit-transition-shadow: box-shadow var(--biokit-duration-normal) var(--biokit-easing-out);
+  --biokit-transition-transform: transform var(--biokit-duration-normal) var(--biokit-easing-smooth);
+  --biokit-transition-all: all var(--biokit-duration-normal) var(--biokit-easing-out);
+  
+  /* ===== Z-Index Scale ===== */
+  --biokit-z-index-dropdown: 1000;
+  --biokit-z-index-sticky: 1020;
+  --biokit-z-index-fixed: 1030;
+  --biokit-z-index-modal-backdrop: 1040;
+  --biokit-z-index-modal: 1050;
+  --biokit-z-index-popover: 1060;
+  --biokit-z-index-tooltip: 1070;
+}
+
+/* ===== Dark Mode Overrides ===== */
+.dark-theme {
+  /* Background Colors - Dark Mode */
+  --biokit-bg-primary: #000000;
+  --biokit-bg-secondary: #1A1A1A;
+  --biokit-bg-tertiary: #252525;
+  --biokit-bg-elevated: #2A2A2A;
+  
+  /* Text Colors - Dark Mode */
+  --biokit-text-primary: #FFFFFF;
+  --biokit-text-secondary: #B3B3B3;
+  --biokit-text-tertiary: #808080;
+  --biokit-text-inverse: #000000;
+  
+  /* Border Colors - Dark Mode */
+  --biokit-border-primary: #333333;
+  --biokit-border-secondary: #404040;
+  
+  /* Shadows - Dark Mode */
+  --biokit-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --biokit-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --biokit-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --biokit-shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Component-Specific Variables ===== */
+:root {
+  /* Buttons */
+  --biokit-button-padding-x: 20px;
+  --biokit-button-padding-y: 10px;
+  --biokit-button-padding-x-sm: 12px;
+  --biokit-button-padding-y-sm: 6px;
+  --biokit-button-padding-x-lg: 28px;
+  --biokit-button-padding-y-lg: 14px;
+  --biokit-button-icon-size: 32px;
+  --biokit-button-icon-size-sm: 24px;
+  --biokit-button-icon-size-lg: 40px;
+  
+  /* Inputs */
+  --biokit-input-padding-x: 12px;
+  --biokit-input-padding-y: 8px;
+  --biokit-input-border-width: 1px;
+  --biokit-input-border-width-focus: 2px;
+  --biokit-input-height: 40px;
+  --biokit-input-height-sm: 32px;
+  --biokit-input-height-lg: 48px;
+  
+  /* Nodes */
+  --biokit-node-padding: 16px;
+  --biokit-node-header-padding-x: 16px;
+  --biokit-node-header-padding-y: 8px;
+  --biokit-node-border-width: 2px;
+  --biokit-node-border-radius: 8px;
+  --biokit-node-header-radius: 6px 6px 0 0;
+  --biokit-node-min-width: 200px;
+  --biokit-node-connection-width: 2px;
+  --biokit-node-connection-width-active: 3px;
+  --biokit-node-slot-size: 12px;
+  --biokit-node-slot-gap: 8px;
+  
+  /* Panels */
+  --biokit-panel-padding: 24px;
+  --biokit-panel-padding-sm: 16px;
+  --biokit-panel-padding-lg: 32px;
+  --biokit-panel-section-spacing: 32px;
+  --biokit-panel-header-height: 48px;
+  
+  /* Dialogs */
+  --biokit-dialog-padding: 24px;
+  --biokit-dialog-header-padding: 16px 24px;
+  --biokit-dialog-footer-padding: 16px 24px;
+  --biokit-dialog-max-width: 600px;
+  --biokit-dialog-min-width: 400px;
+  
+  /* Menu */
+  --biokit-menu-item-padding: 8px 16px;
+  --biokit-menu-item-height: 36px;
+  --biokit-menu-divider-margin: 4px 0;
+  
+  /* Tooltips */
+  --biokit-tooltip-padding: 6px 12px;
+  --biokit-tooltip-arrow-size: 6px;
+  --biokit-tooltip-max-width: 250px;
+}

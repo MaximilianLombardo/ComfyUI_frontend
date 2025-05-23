@@ -715,7 +715,7 @@ export const CORE_SETTINGS: SettingParams[] = [
     id: 'Comfy.ColorPalette',
     name: 'The active color palette id',
     type: 'hidden',
-    defaultValue: 'dark',
+    defaultValue: 'biokit-dark',
     versionModified: '1.6.7',
     migrateDeprecatedValue(value: string) {
       // Legacy custom palettes were prefixed with 'custom_'

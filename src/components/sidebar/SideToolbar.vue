@@ -13,7 +13,6 @@
       />
       <div class="side-tool-bar-end">
         <SidebarLogoutIcon v-if="userStore.isMultiUserServer" />
-        <SidebarThemeToggleIcon />
         <SidebarSettingsToggleIcon />
       </div>
     </nav>
@@ -39,7 +38,6 @@ import type { SidebarTabExtension } from '@/types/extensionTypes'
 import SidebarIcon from './SidebarIcon.vue'
 import SidebarLogoutIcon from './SidebarLogoutIcon.vue'
 import SidebarSettingsToggleIcon from './SidebarSettingsToggleIcon.vue'
-import SidebarThemeToggleIcon from './SidebarThemeToggleIcon.vue'
 
 const workspaceStore = useWorkspaceStore()
 const settingStore = useSettingStore()
@@ -57,6 +55,7 @@ const isSmall = computed(
 
 const tabs = computed(() => workspaceStore.getSidebarTabs())
 const selectedTab = computed(() => workspaceStore.sidebarTab.activeSidebarTab)
+
 const onTabClick = (item: SidebarTabExtension) => {
   workspaceStore.sidebarTab.toggleSidebarTab(item.id)
 }

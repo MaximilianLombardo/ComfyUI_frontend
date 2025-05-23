@@ -12,21 +12,37 @@
 import { useEventListener } from '@vueuse/core'
 import BlockUI from 'primevue/blockui'
 import ProgressSpinner from 'primevue/progressspinner'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 
 import GlobalDialog from '@/components/dialog/GlobalDialog.vue'
 import config from '@/config'
+import { useColorPaletteStore } from '@/stores/workspace/colorPaletteStore'
 import { useWorkspaceStore } from '@/stores/workspaceStore'
 
 import { electronAPI, isElectron } from './utils/envUtil'
 
 const workspaceStore = useWorkspaceStore()
+const colorPaletteStore = useColorPaletteStore()
 const isLoading = computed<boolean>(() => workspaceStore.spinner)
 const handleKey = (e: KeyboardEvent) => {
   workspaceStore.shiftDown = e.shiftKey
 }
 useEventListener(window, 'keydown', handleKey)
 useEventListener(window, 'keyup', handleKey)
+
+// Watch for theme changes and apply dark-theme class
+watch(
+  () => colorPaletteStore.completedActivePalette,
+  (newTheme) => {
+    const DARK_THEME_CLASS = 'dark-theme'
+    if (newTheme.light_theme) {
+      document.body.classList.remove(DARK_THEME_CLASS)
+    } else {
+      document.body.classList.add(DARK_THEME_CLASS)
+    }
+  },
+  { immediate: true }
+)
 
 const showContextMenu = (event: MouseEvent) => {
   const { target } = event

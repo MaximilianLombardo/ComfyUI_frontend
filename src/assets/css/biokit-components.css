@@ -1,0 +1,524 @@
+/**
+ * BioKit Component Styles
+ * Reusable component classes following BioKit design system
+ */
+
+/* ===== Typography Classes ===== */
+.biokit-h1 {
+  font-family: var(--biokit-font-heading);
+  font-size: var(--biokit-font-size-h1);
+  font-weight: var(--biokit-font-weight-bold);
+  line-height: var(--biokit-line-height-heading);
+  letter-spacing: var(--biokit-letter-spacing-heading);
+  color: var(--biokit-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--biokit-spacing-xl);
+}
+
+.biokit-h2 {
+  font-family: var(--biokit-font-heading);
+  font-size: var(--biokit-font-size-h2);
+  font-weight: var(--biokit-font-weight-semibold);
+  line-height: var(--biokit-line-height-heading);
+  letter-spacing: var(--biokit-letter-spacing-heading);
+  color: var(--biokit-text-primary);
+  margin-top: var(--biokit-spacing-xl);
+  margin-bottom: var(--biokit-spacing-lg);
+}
+
+.biokit-h3 {
+  font-family: var(--biokit-font-heading);
+  font-size: var(--biokit-font-size-h3);
+  font-weight: var(--biokit-font-weight-semibold);
+  line-height: var(--biokit-line-height-heading);
+  letter-spacing: var(--biokit-letter-spacing-heading);
+  color: var(--biokit-text-primary);
+  margin-top: var(--biokit-spacing-lg);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+.biokit-h4 {
+  font-family: var(--biokit-font-heading);
+  font-size: var(--biokit-font-size-h4);
+  font-weight: var(--biokit-font-weight-medium);
+  line-height: var(--biokit-line-height-heading);
+  letter-spacing: var(--biokit-letter-spacing-heading);
+  color: var(--biokit-text-primary);
+  margin-top: var(--biokit-spacing-lg);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+.biokit-body-large {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-large);
+  font-weight: var(--biokit-font-weight-regular);
+  line-height: var(--biokit-line-height-body);
+  color: var(--biokit-text-primary);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+.biokit-body {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-regular);
+  font-weight: var(--biokit-font-weight-regular);
+  line-height: var(--biokit-line-height-body);
+  color: var(--biokit-text-primary);
+  margin-bottom: var(--biokit-spacing-md);
+}
+
+.biokit-body-small {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
+  font-weight: var(--biokit-font-weight-regular);
+  line-height: var(--biokit-line-height-body);
+  color: var(--biokit-text-secondary);
+  margin-bottom: var(--biokit-spacing-sm);
+}
+
+.biokit-body-tiny {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-tiny);
+  font-weight: var(--biokit-font-weight-regular);
+  line-height: var(--biokit-line-height-body);
+  color: var(--biokit-text-tertiary);
+  margin-bottom: var(--biokit-spacing-xs);
+}
+
+/* Typography utilities */
+.biokit-text-no-margin { margin: 0 !important; }
+.biokit-text-small-margin { margin-bottom: var(--biokit-spacing-sm) !important; }
+.biokit-text-normal-margin { margin-bottom: var(--biokit-spacing-md) !important; }
+.biokit-text-large-margin { margin-bottom: var(--biokit-spacing-lg) !important; }
+
+/* ===== Button Styles ===== */
+.biokit-button {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
+  font-weight: var(--biokit-font-weight-medium);
+  padding: var(--biokit-button-padding-y) var(--biokit-button-padding-x);
+  border-radius: var(--biokit-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--biokit-duration-normal) var(--biokit-easing-out);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--biokit-spacing-sm);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.biokit-button:focus {
+  outline: 2px solid var(--biokit-orange);
+  outline-offset: 2px;
+}
+
+.biokit-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.biokit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Primary Button */
+.biokit-button-primary {
+  background-color: var(--biokit-orange);
+  color: var(--biokit-white);
+}
+
+.biokit-button-primary:hover:not(:disabled) {
+  background-color: var(--biokit-orange-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--biokit-shadow-md);
+}
+
+.biokit-button-primary:active:not(:disabled) {
+  background-color: var(--biokit-orange-active);
+  transform: translateY(0);
+  box-shadow: var(--biokit-shadow-sm);
+}
+
+/* Secondary Button */
+.biokit-button-secondary {
+  background-color: var(--biokit-bg-primary);
+  color: var(--biokit-text-primary);
+  border: 2px solid var(--biokit-black);
+}
+
+.biokit-button-secondary:hover:not(:disabled) {
+  background-color: var(--biokit-bg-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--biokit-shadow-md);
+}
+
+.biokit-button-secondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--biokit-shadow-sm);
+}
+
+.dark-theme .biokit-button-secondary {
+  border-color: var(--biokit-white);
+}
+
+/* Icon Button */
+.biokit-button-icon {
+  width: var(--biokit-button-icon-size);
+  height: var(--biokit-button-icon-size);
+  padding: 0;
+  background-color: transparent;
+  color: var(--biokit-text-primary);
+  border-radius: var(--biokit-radius-md);
+}
+
+.biokit-button-icon:hover:not(:disabled) {
+  background-color: var(--biokit-bg-secondary);
+}
+
+.biokit-button-icon:active:not(:disabled) {
+  background-color: var(--biokit-orange);
+  color: var(--biokit-white);
+}
+
+/* ===== Input Styles ===== */
+.biokit-input {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
+  padding: var(--biokit-input-padding-y) var(--biokit-input-padding-x);
+  background-color: var(--biokit-bg-primary);
+  border: var(--biokit-input-border-width) solid var(--biokit-border-primary);
+  border-radius: var(--biokit-radius-sm);
+  color: var(--biokit-text-primary);
+  transition: all var(--biokit-duration-normal) var(--biokit-easing-out);
+  width: 100%;
+}
+
+.biokit-input:focus {
+  outline: none;
+  border-width: var(--biokit-input-border-width-focus);
+  border-color: var(--biokit-orange);
+  padding: calc(var(--biokit-input-padding-y) - 1px) calc(var(--biokit-input-padding-x) - 1px);
+}
+
+.biokit-input:hover:not(:focus) {
+  border-color: var(--biokit-border-secondary);
+}
+
+.biokit-input::placeholder {
+  color: var(--biokit-text-tertiary);
+}
+
+.biokit-input-error {
+  border-color: var(--biokit-error);
+}
+
+.biokit-input-error:focus {
+  border-color: var(--biokit-error);
+}
+
+/* ===== Checkbox Styles ===== */
+.biokit-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--biokit-border-primary);
+  border-radius: var(--biokit-radius-sm);
+  background-color: var(--biokit-bg-primary);
+  cursor: pointer;
+  position: relative;
+  transition: var(--biokit-transition-all);
+}
+
+.biokit-checkbox:hover {
+  border-color: var(--biokit-orange);
+}
+
+.biokit-checkbox:checked {
+  background-color: var(--biokit-orange);
+  border-color: var(--biokit-orange);
+}
+
+.biokit-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid var(--biokit-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.biokit-checkbox:focus {
+  outline: 2px solid var(--biokit-orange);
+  outline-offset: 2px;
+}
+
+.biokit-checkbox:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Radio Button Styles ===== */
+.biokit-radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--biokit-border-primary);
+  border-radius: 50%;
+  background-color: var(--biokit-bg-primary);
+  cursor: pointer;
+  position: relative;
+  transition: var(--biokit-transition-all);
+}
+
+.biokit-radio:hover {
+  border-color: var(--biokit-orange);
+}
+
+.biokit-radio:checked {
+  border-color: var(--biokit-orange);
+}
+
+.biokit-radio:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--biokit-orange);
+}
+
+.biokit-radio:focus {
+  outline: 2px solid var(--biokit-orange);
+  outline-offset: 2px;
+}
+
+.biokit-radio:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Slider Styles ===== */
+.biokit-slider {
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--biokit-radius-full);
+  background-color: var(--biokit-border-primary);
+  outline: none;
+  transition: var(--biokit-transition-bg);
+}
+
+.biokit-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--biokit-orange);
+  cursor: pointer;
+  transition: var(--biokit-transition-all);
+  box-shadow: var(--biokit-shadow-sm);
+}
+
+.biokit-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--biokit-orange);
+  cursor: pointer;
+  transition: var(--biokit-transition-all);
+  box-shadow: var(--biokit-shadow-sm);
+  border: none;
+}
+
+.biokit-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+  box-shadow: var(--biokit-shadow-md);
+}
+
+.biokit-slider:hover::-moz-range-thumb {
+  transform: scale(1.1);
+  box-shadow: var(--biokit-shadow-md);
+}
+
+.biokit-slider:focus {
+  outline: none;
+}
+
+.biokit-slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(255, 83, 53, 0.2);
+}
+
+.biokit-slider:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 4px rgba(255, 83, 53, 0.2);
+}
+
+.biokit-slider:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Select Dropdown Styles ===== */
+.biokit-select {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
+  padding: var(--biokit-input-padding-y) var(--biokit-input-padding-x);
+  padding-right: 36px;
+  background-color: var(--biokit-bg-primary);
+  border: var(--biokit-input-border-width) solid var(--biokit-border-primary);
+  border-radius: var(--biokit-radius-sm);
+  color: var(--biokit-text-primary);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 20px;
+  transition: var(--biokit-transition-all);
+}
+
+.biokit-select:hover {
+  border-color: var(--biokit-border-secondary);
+}
+
+.biokit-select:focus {
+  outline: none;
+  border-width: var(--biokit-input-border-width-focus);
+  border-color: var(--biokit-orange);
+  padding: calc(var(--biokit-input-padding-y) - 1px) calc(var(--biokit-input-padding-x) - 1px);
+  padding-right: 35px;
+}
+
+.biokit-select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Panel Styles ===== */
+.biokit-panel {
+  background-color: var(--biokit-bg-secondary);
+  border: 1px solid var(--biokit-border-primary);
+  border-radius: var(--biokit-radius-lg);
+  padding: var(--biokit-panel-padding);
+  box-shadow: var(--biokit-shadow-sm);
+}
+
+.biokit-panel-header {
+  font-family: var(--biokit-font-heading);
+  font-size: var(--biokit-font-size-h4);
+  font-weight: var(--biokit-font-weight-semibold);
+  margin-bottom: var(--biokit-spacing-lg);
+  color: var(--biokit-text-primary);
+}
+
+.biokit-panel-section {
+  margin-bottom: var(--biokit-panel-section-spacing);
+}
+
+.biokit-panel-section:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== Card Styles ===== */
+.biokit-card {
+  background-color: var(--biokit-bg-primary);
+  border: 1px solid var(--biokit-border-primary);
+  border-radius: var(--biokit-radius-lg);
+  padding: var(--biokit-spacing-lg);
+  box-shadow: var(--biokit-shadow-md);
+  transition: all var(--biokit-duration-slow) var(--biokit-easing-out);
+}
+
+.biokit-card:hover {
+  box-shadow: var(--biokit-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ===== Badge Styles ===== */
+.biokit-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--biokit-spacing-xs) var(--biokit-spacing-sm);
+  font-size: var(--biokit-font-size-tiny);
+  font-weight: var(--biokit-font-weight-medium);
+  border-radius: var(--biokit-radius-full);
+  background-color: var(--biokit-bg-secondary);
+  color: var(--biokit-text-primary);
+  border: 1px solid var(--biokit-border-primary);
+}
+
+.biokit-badge-primary {
+  background-color: var(--biokit-orange);
+  color: var(--biokit-white);
+  border-color: var(--biokit-orange);
+}
+
+.biokit-badge-success {
+  background-color: var(--biokit-success);
+  color: var(--biokit-white);
+  border-color: var(--biokit-success);
+}
+
+.biokit-badge-warning {
+  background-color: var(--biokit-warning);
+  color: var(--biokit-white);
+  border-color: var(--biokit-warning);
+}
+
+.biokit-badge-error {
+  background-color: var(--biokit-error);
+  color: var(--biokit-white);
+  border-color: var(--biokit-error);
+}
+
+/* ===== Loading States ===== */
+.biokit-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--biokit-bg-secondary) 25%,
+    var(--biokit-bg-tertiary) 50%,
+    var(--biokit-bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: biokit-skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: var(--biokit-radius-sm);
+}
+
+@keyframes biokit-skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ===== Focus Styles ===== */
+.biokit-focus-visible:focus-visible {
+  outline: 2px solid var(--biokit-orange);
+  outline-offset: 2px;
+}
+
+/* ===== Utility Classes ===== */
+.biokit-text-primary { color: var(--biokit-text-primary); }
+.biokit-text-secondary { color: var(--biokit-text-secondary); }
+.biokit-text-tertiary { color: var(--biokit-text-tertiary); }
+.biokit-text-orange { color: var(--biokit-orange); }
+.biokit-text-success { color: var(--biokit-success); }
+.biokit-text-warning { color: var(--biokit-warning); }
+.biokit-text-error { color: var(--biokit-error); }
+
+.biokit-bg-primary { background-color: var(--biokit-bg-primary); }
+.biokit-bg-secondary { background-color: var(--biokit-bg-secondary); }
+.biokit-bg-orange { background-color: var(--biokit-orange); }
+
+.biokit-border-primary { border-color: var(--biokit-border-primary); }
+.biokit-border-orange { border-color: var(--biokit-orange); }
