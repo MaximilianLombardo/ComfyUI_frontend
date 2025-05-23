@@ -106,26 +106,6 @@ const handleClick = () => {
   max-width: 100%;
   height: auto;
   align-self: center;
-  margin-left: 2px; /* Base margin for small screens */
-}
-
-/* Responsive margins at different breakpoints */
-@media (min-width: 640px) {
-  .biokit-logo {
-    margin-left: 6px; /* sm breakpoint */
-  }
-}
-
-@media (min-width: 768px) {
-  .biokit-logo {
-    margin-left: 10px; /* md breakpoint */
-  }
-}
-
-@media (min-width: 1024px) {
-  .biokit-logo {
-    margin-left: 14px; /* lg breakpoint */
-  }
 }
 
 /* Size classes are handled via width/height attributes on the img element */
