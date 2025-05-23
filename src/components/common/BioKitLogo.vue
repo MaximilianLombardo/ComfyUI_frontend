@@ -87,9 +87,8 @@ const handleClick = () => {
 
 <style scoped>
 .biokit-logo-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  justify-content: center; /* For horizontal centering */
 }
 
 .biokit-logo-clickable {
@@ -106,22 +105,28 @@ const handleClick = () => {
   display: block;
   max-width: 100%;
   height: auto;
+  align-self: center;
+  margin-left: 2px; /* Base margin for small screens */
 }
 
-/* Size classes */
-.biokit-logo-small {
-  /* Icon: 24px, Full: 120px */
+/* Responsive margins at different breakpoints */
+@media (min-width: 640px) {
+  .biokit-logo {
+    margin-left: 6px; /* sm breakpoint */
+  }
 }
 
-.biokit-logo-medium {
-  /* Icon: 32px, Full: 180px */
+@media (min-width: 768px) {
+  .biokit-logo {
+    margin-left: 10px; /* md breakpoint */
+  }
 }
 
-.biokit-logo-large {
-  /* Icon: 48px, Full: 280px */
+@media (min-width: 1024px) {
+  .biokit-logo {
+    margin-left: 14px; /* lg breakpoint */
+  }
 }
 
-.biokit-logo-full {
-  /* Icon: 64px, Full: 560px */
-}
+/* Size classes are handled via width/height attributes on the img element */
 </style>
