@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'medium',
   variant: 'icon',
   clickable: true,
-  href: 'https://biokit.ai',
+  href: 'https://biokitlabs.com',
   alt: 'BioKit Labs'
 })
 
