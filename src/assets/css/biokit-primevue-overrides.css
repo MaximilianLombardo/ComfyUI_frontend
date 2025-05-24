@@ -273,68 +273,485 @@
 
   /* ===== Input Component Overrides ===== */
   .p-inputtext,
-  .p-textarea,
-  .p-select,
-  .p-multiselect,
-  .p-dropdown {
+  .p-textarea {
     font-family: var(--biokit-font-body);
-    font-size: var(--biokit-font-size-small);
-    transition-duration: var(--biokit-duration-normal);
-    transition-timing-function: var(--biokit-easing-smooth);
-    color: var(--input-text);
-    background-color: var(--comfy-input-bg);
+    font-size: 14px; /* Inter Regular 14px as specified */
+    font-weight: var(--biokit-font-weight-regular);
+    padding: 12px 16px; /* 12px 16px as specified */
+    background-color: var(--biokit-bg-primary); /* White (light) / #2A2A2A (dark) */
+    border: 1px solid #E0E0E0; /* 1px solid #E0E0E0 (light) */
+    border-radius: 8px; /* 8px as specified */
+    color: var(--biokit-text-primary); /* Black (light) / White (dark) */
+    transition: all 150ms ease-out; /* 150ms as specified */
+    line-height: 1.5;
+  }
+
+  /* Dark theme border override */
+  .dark-theme .p-inputtext,
+  .dark-theme .p-textarea {
+    border-color: #404040; /* #404040 (dark) as specified */
+  }
+
+  /* Placeholder styling */
+  .p-inputtext::placeholder,
+  .p-textarea::placeholder {
+    color: #999999; /* #999999 (light) as specified */
+    opacity: 1;
+  }
+
+  .dark-theme .p-inputtext::placeholder,
+  .dark-theme .p-textarea::placeholder {
+    color: #666666; /* #666666 (dark) as specified */
   }
 
   /* Focus state with BioKit Orange */
   .p-inputtext:focus,
-  .p-textarea:focus,
-  .p-select:focus,
-  .p-multiselect:focus,
-  .p-dropdown:focus {
-    border-width: 2px;
-    padding: 11px 15px; /* Adjust padding to account for thicker border */
-    box-shadow: var(--biokit-shadow-active);
+  .p-textarea:focus {
+    outline: none;
+    border-width: 2px; /* 2px BioKit Orange border as specified */
+    border-color: var(--biokit-orange);
+    box-shadow: 0 0 0 3px rgba(255, 83, 53, 0.1); /* slight shadow as specified */
+    padding: 11px 15px; /* Adjust padding to compensate for thicker border */
   }
 
-  /* Input placeholder styling */
-  .p-inputtext::placeholder,
-  .p-textarea::placeholder {
-    color: var(--biokit-text-tertiary);
-    opacity: 1;
+  /* Hover state (when not focused) */
+  .p-inputtext:hover:not(:focus):not(:disabled),
+  .p-textarea:hover:not(:focus):not(:disabled) {
+    border-color: var(--biokit-border-secondary);
+  }
+
+  /* Disabled state */
+  .p-inputtext:disabled,
+  .p-textarea:disabled {
+    opacity: 0.5; /* 50% opacity as specified */
+    cursor: not-allowed;
+    background-color: var(--biokit-bg-secondary);
+  }
+
+  /* Textarea specific */
+  .p-textarea {
+    min-height: 100px;
+    resize: vertical;
   }
 
   /* ===== Select/Dropdown Component Overrides ===== */
-  .p-select-label,
-  .p-dropdown-label {
+  .p-select,
+  .p-dropdown,
+  .p-multiselect {
     font-family: var(--biokit-font-body);
+    font-size: 14px; /* Inter Regular 14px as specified */
+    font-weight: var(--biokit-font-weight-regular);
+    padding: 12px 16px; /* 12px 16px as specified */
+    padding-right: 40px; /* Extra space for chevron */
+    background-color: var(--biokit-bg-primary); /* White (light) / #2A2A2A (dark) */
+    border: 1px solid #E0E0E0; /* 1px solid #E0E0E0 (light) */
+    border-radius: 8px; /* 8px as specified */
+    color: var(--biokit-text-primary); /* Black (light) / White (dark) */
+    transition: all 150ms ease-out;
   }
 
+  /* Dark theme border */
+  .dark-theme .p-select,
+  .dark-theme .p-dropdown,
+  .dark-theme .p-multiselect {
+    border-color: #404040; /* #404040 (dark) as specified */
+  }
+
+  .p-select:hover:not(:disabled),
+  .p-dropdown:hover:not(:disabled),
+  .p-multiselect:hover:not(:disabled) {
+    border-color: var(--biokit-border-secondary);
+  }
+
+  /* Focus state */
+  .p-select:focus,
+  .p-dropdown:focus,
+  .p-multiselect:focus {
+    outline: none;
+    border-width: 2px; /* 2px BioKit Orange border */
+    border-color: var(--biokit-orange);
+    box-shadow: 0 0 0 3px rgba(255, 83, 53, 0.1); /* slight shadow */
+    padding: 11px 15px; /* Adjust padding to compensate for thicker border */
+    padding-right: 39px;
+  }
+
+  /* Disabled state */
+  .p-select:disabled,
+  .p-dropdown:disabled,
+  .p-multiselect:disabled {
+    opacity: 0.5; /* 50% opacity */
+    cursor: not-allowed;
+    background-color: var(--biokit-bg-secondary);
+  }
+
+  /* Dropdown icon styling */
+  .p-select-trigger-icon,
+  .p-dropdown-trigger-icon,
+  .p-multiselect-trigger-icon {
+    color: var(--biokit-orange); /* Custom chevron in BioKit Orange */
+  }
+
+  .p-select-label,
+  .p-dropdown-label,
+  .p-multiselect-label {
+    font-family: var(--biokit-font-body);
+    padding: 0;
+  }
+
+  /* Dropdown overlay */
   .p-select-overlay,
-  .p-dropdown-overlay {
-    box-shadow: var(--biokit-shadow-lg);
+  .p-dropdown-overlay,
+  .p-multiselect-overlay {
+    background-color: var(--biokit-bg-primary); /* White (light) / #2A2A2A (dark) */
+    border: 1px solid var(--biokit-border-primary);
+    box-shadow: var(--biokit-shadow-md);
     border-radius: var(--biokit-radius-lg);
   }
 
+  /* Dropdown items */
+  .p-select-option,
+  .p-dropdown-item,
+  .p-multiselect-item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--biokit-text-primary);
+    transition: all 150ms ease-out;
+  }
+
   .p-select-option:hover,
-  .p-dropdown-item:hover {
+  .p-dropdown-item:hover,
+  .p-multiselect-item:hover {
+    background-color: var(--biokit-orange); /* BioKit Orange background with white text */
+    color: #FFFFFF;
+  }
+
+  .p-select-option.p-highlight,
+  .p-dropdown-item.p-highlight,
+  .p-multiselect-item.p-highlight {
     background-color: var(--biokit-orange);
-    color: var(--biokit-white);
+    color: #FFFFFF;
+  }
+
+  /* ===== AutoComplete Component Overrides ===== */
+  .p-autocomplete {
+    font-family: var(--biokit-font-body);
+  }
+
+  .p-autocomplete-input {
+    font-size: 14px;
+    padding: 12px 16px;
+    background-color: var(--biokit-bg-primary);
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    color: var(--biokit-text-primary);
+    transition: all 150ms ease-out;
+  }
+
+  /* Dark theme border */
+  .dark-theme .p-autocomplete-input {
+    border-color: #404040;
+  }
+
+  .p-autocomplete-input::placeholder {
+    color: #999999;
+  }
+
+  .dark-theme .p-autocomplete-input::placeholder {
+    color: #666666;
+  }
+
+  .p-autocomplete-input:focus {
+    outline: none;
+    border-width: 2px;
+    border-color: var(--biokit-orange);
+    box-shadow: 0 0 0 3px rgba(255, 83, 53, 0.1);
+    padding: 11px 15px;
+  }
+
+  /* AutoComplete dropdown panel */
+  .p-autocomplete-overlay,
+  .p-autocomplete-panel {
+    background-color: var(--biokit-bg-primary) !important;
+    border: 1px solid var(--biokit-border-primary) !important;
+    box-shadow: var(--biokit-shadow-lg) !important;
+    border-radius: var(--biokit-radius-lg) !important;
+  }
+
+  /* Dark theme specific panel background */
+  .dark-theme .p-autocomplete-overlay,
+  .dark-theme .p-autocomplete-panel {
+    background-color: #2A2A2A !important; /* Dark elevated background */
+  }
+
+  .p-autocomplete-items {
+    padding: 4px 0;
+  }
+
+  .p-autocomplete-item {
+    padding: 8px 12px;
+    color: var(--biokit-text-primary) !important;
+    background-color: transparent;
+    transition: all 150ms ease-out;
+  }
+
+  /* Force text color in dark theme */
+  .dark-theme .p-autocomplete-item {
+    color: #FFFFFF !important;
+  }
+
+  .p-autocomplete-item:hover {
+    background-color: var(--biokit-bg-secondary);
+  }
+
+  .dark-theme .p-autocomplete-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .p-autocomplete-item.p-highlight {
+    background-color: var(--biokit-orange);
+    color: #FFFFFF !important;
+  }
+
+  /* Specific styles for node search items */
+  .p-autocomplete-item .option-container {
+    color: inherit !important;
+  }
+
+  .p-autocomplete-item .option-display-name {
+    color: inherit !important;
+  }
+
+  .p-autocomplete-item .option-category {
+    color: var(--biokit-text-secondary) !important;
+    opacity: 0.8;
+  }
+
+  /* Dark theme specific overrides for better contrast */
+  .dark-theme .p-autocomplete-item .option-display-name {
+    color: #FFFFFF !important;
+  }
+
+  .dark-theme .p-autocomplete-item .option-category {
+    color: #B3B3B3 !important;
+  }
+
+  .dark-theme .p-autocomplete-item .text-muted {
+    color: #B3B3B3 !important;
+  }
+
+  /* Fix for empty state message */
+  .p-autocomplete-empty-message {
+    padding: 8px 12px;
+    color: var(--biokit-text-secondary);
+  }
+
+  /* Ensure highlighted items preserve white text */
+  .p-autocomplete-item.p-highlight .option-container,
+  .p-autocomplete-item.p-highlight .option-display-name,
+  .p-autocomplete-item.p-highlight .option-category,
+  .p-autocomplete-item.p-highlight .text-muted {
+    color: #FFFFFF !important;
+  }
+
+  /* Node search specific chip and tag styles in autocomplete */
+  .p-autocomplete-item .p-chip {
+    background-color: var(--biokit-bg-tertiary);
+    color: var(--biokit-text-primary) !important;
+    border: 1px solid var(--biokit-border-primary);
+  }
+
+  .dark-theme .p-autocomplete-item .p-chip {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .p-autocomplete-item.p-highlight .p-chip {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .p-autocomplete-item .p-tag {
+    background-color: var(--biokit-bg-tertiary);
+    color: var(--biokit-text-primary) !important;
+  }
+
+  .dark-theme .p-autocomplete-item .p-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF !important;
+  }
+
+  .p-autocomplete-item.p-highlight .p-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF !important;
+  }
+
+  /* Force all text elements in dark theme autocomplete to be visible */
+  .dark-theme .p-autocomplete-item span,
+  .dark-theme .p-autocomplete-item div {
+    color: #FFFFFF !important;
+  }
+
+  .dark-theme .p-autocomplete-item .font-light {
+    color: #B3B3B3 !important;
+  }
+
+  .dark-theme .p-autocomplete-item .font-semibold {
+    color: #FFFFFF !important;
+  }
+
+  /* Additional specificity for node names */
+  .dark-theme .p-autocomplete-overlay .option-display-name span,
+  .dark-theme .p-autocomplete-panel .option-display-name span {
+    color: #FFFFFF !important;
+  }
+
+  /* Fix for any nested elements */
+  .dark-theme .p-autocomplete-overlay .option-container *,
+  .dark-theme .p-autocomplete-panel .option-container * {
+    color: inherit !important;
+  }
+
+  /* Node search box specific styling */
+  .comfy-vue-node-search-box .p-autocomplete {
+    width: 100%;
+  }
+
+  .comfy-vue-node-search-box .p-autocomplete-input {
+    width: 100%;
+  }
+
+  /* Multiple selection chips in node search */
+  .comfy-vue-node-search-box .p-autocomplete-multiple-container {
+    background-color: var(--biokit-bg-primary);
+    border: 1px solid var(--biokit-border-primary);
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .comfy-vue-node-search-box .p-autocomplete-multiple-container:focus-within {
+    border-color: var(--biokit-orange);
+    border-width: 2px;
+    padding: 3px;
+  }
+
+  /* Filter button styling */
+  .comfy-vue-node-search-container .filter-button {
+    background-color: var(--biokit-bg-primary);
+    border: 1px solid var(--biokit-border-primary);
+    color: var(--biokit-text-primary);
+  }
+
+  .comfy-vue-node-search-container .filter-button:hover {
+    border-color: var(--biokit-orange);
+    color: var(--biokit-orange);
   }
 
   /* ===== Checkbox & Radio Overrides ===== */
-  .p-checkbox,
+  .p-checkbox {
+    width: 20px; /* 20px × 20px as specified */
+    height: 20px;
+  }
+
+  .p-checkbox-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E0E0E0; /* 2px solid #E0E0E0 (light) as specified */
+    border-radius: 4px; /* 4px (checkbox) as specified */
+    background-color: var(--biokit-bg-primary);
+    transition: all 150ms ease-out;
+  }
+
+  /* Dark theme border */
+  .dark-theme .p-checkbox-box {
+    border-color: #404040; /* #404040 (dark) as specified */
+  }
+
+  .p-checkbox:not(.p-disabled):hover .p-checkbox-box {
+    border-color: var(--biokit-orange);
+  }
+
+  /* Checked state */
+  .p-checkbox.p-checked .p-checkbox-box {
+    background-color: var(--biokit-orange); /* BioKit Orange background */
+    border-color: var(--biokit-orange);
+  }
+
+  .p-checkbox.p-checked .p-checkbox-box .p-checkbox-icon {
+    color: #FFFFFF; /* White checkmark as specified */
+  }
+
+  /* Focus state */
+  .p-checkbox:focus .p-checkbox-box,
+  .p-checkbox.p-focus .p-checkbox-box {
+    outline: 2px solid var(--biokit-orange); /* BioKit Orange outline as specified */
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  .p-checkbox.p-disabled .p-checkbox-box {
+    opacity: 0.5; /* 50% opacity */
+    cursor: not-allowed;
+  }
+
+  /* Radio button */
   .p-radiobutton {
-    transition-duration: var(--biokit-duration-fast);
+    width: 20px; /* 20px × 20px as specified */
+    height: 20px;
   }
 
-  .p-checkbox-box,
   .p-radiobutton-box {
-    border-width: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E0E0E0; /* 2px solid #E0E0E0 (light) as specified */
+    border-radius: 50%; /* 50% (radio) as specified */
+    background-color: var(--biokit-bg-primary);
+    transition: all 150ms ease-out;
   }
 
-  .p-checkbox:not(.p-disabled):hover .p-checkbox-box,
+  /* Dark theme border */
+  .dark-theme .p-radiobutton-box {
+    border-color: #404040; /* #404040 (dark) as specified */
+  }
+
   .p-radiobutton:not(.p-disabled):hover .p-radiobutton-box {
     border-color: var(--biokit-orange);
+  }
+
+  /* Checked state */
+  .p-radiobutton.p-checked .p-radiobutton-box {
+    background-color: var(--biokit-orange); /* BioKit Orange background */
+    border-color: var(--biokit-orange);
+  }
+
+  .p-radiobutton.p-checked .p-radiobutton-box .p-radiobutton-icon {
+    background-color: #FFFFFF; /* White dot as specified */
+    width: 8px;
+    height: 8px;
+    display: block;
+  }
+
+  /* Focus state */
+  .p-radiobutton:focus .p-radiobutton-box,
+  .p-radiobutton.p-focus .p-radiobutton-box {
+    outline: 2px solid var(--biokit-orange); /* BioKit Orange outline as specified */
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  .p-radiobutton.p-disabled .p-radiobutton-box {
+    opacity: 0.5; /* 50% opacity */
+    cursor: not-allowed;
+  }
+
+  /* Error states for checkbox and radio */
+  .p-checkbox.p-invalid .p-checkbox-box {
+    border-color: #D32F2F !important;
+  }
+
+  .p-radiobutton.p-invalid .p-radiobutton-box {
+    border-color: #D32F2F !important;
   }
 
   /* ===== Dialog Component Overrides ===== */
@@ -439,13 +856,30 @@
   /* ===== Form Field States ===== */
   /* Error state */
   .p-invalid {
-    border-color: var(--biokit-error) !important;
+    border-color: #D32F2F !important; /* Red border (#D32F2F) as specified */
   }
 
+  /* Error messages */
   .p-error {
-    color: var(--biokit-error);
-    font-size: var(--biokit-font-size-tiny);
+    font-family: var(--biokit-font-body);
+    font-size: 12px; /* Smaller font size (12px) as specified */
+    font-weight: var(--biokit-font-weight-regular);
+    color: #D32F2F; /* Error message in red as specified */
     margin-top: var(--biokit-spacing-xs);
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: var(--biokit-spacing-xs);
+  }
+
+  /* Helper text */
+  .p-helper-text {
+    font-family: var(--biokit-font-body);
+    font-size: 12px; /* Smaller font size (12px) as specified */
+    font-weight: var(--biokit-font-weight-regular);
+    color: var(--biokit-text-secondary); /* Muted color */
+    margin-top: var(--biokit-spacing-xs);
+    line-height: 1.4;
   }
 
   /* ===== Scrollbar Styling ===== */
@@ -483,6 +917,40 @@
     transition-duration: var(--biokit-duration-normal);
     transition-timing-function: var(--biokit-easing-smooth);
   }
+}
+
+/* ===== Additional AutoComplete Dark Theme Fixes ===== */
+/* Ensure all autocomplete overlays in dark theme have proper styling */
+.dark-theme .p-component-overlay,
+.dark-theme .p-autocomplete-overlay,
+.dark-theme .p-autocomplete-panel {
+  background-color: #2A2A2A !important;
+  color: #FFFFFF !important;
+}
+
+.dark-theme .p-autocomplete-overlay .p-autocomplete-item,
+.dark-theme .p-autocomplete-panel .p-autocomplete-item {
+  color: #FFFFFF !important;
+}
+
+/* Global fix for any missed text elements */
+.dark-theme .p-autocomplete-overlay *,
+.dark-theme .p-autocomplete-panel * {
+  color: inherit;
+}
+
+/* Node search specific dark theme overrides */
+.dark-theme .comfy-vue-node-search-container .p-autocomplete-item {
+  color: #FFFFFF !important;
+}
+
+.dark-theme .comfy-vue-node-search-container .option-display-name,
+.dark-theme .comfy-vue-node-search-container .option-container {
+  color: #FFFFFF !important;
+}
+
+.dark-theme .comfy-vue-node-search-container .option-category {
+  color: #B3B3B3 !important;
 }
 
 /* ===== Sidebar Specific Overrides ===== */
@@ -531,6 +999,11 @@
 /* ===== Utility Classes ===== */
 .text-muted {
   color: var(--descrip-text);
+}
+
+/* Dark theme text-muted override for better contrast */
+.dark-theme .text-muted {
+  color: var(--biokit-text-secondary) !important;
 }
 
 /* ===== Animation Classes ===== */

@@ -228,60 +228,184 @@
   min-height: 48px;
 }
 
-/* ===== Input Styles ===== */
-.biokit-input {
+/* ===== Form Components ===== */
+
+/* Form Group Wrapper */
+.biokit-form-group {
+  margin-bottom: var(--biokit-spacing-lg);
+}
+
+.biokit-form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Label Styles */
+.biokit-label {
+  display: block;
   font-family: var(--biokit-font-body);
   font-size: var(--biokit-font-size-small);
-  padding: var(--biokit-input-padding-y) var(--biokit-input-padding-x);
-  background-color: var(--biokit-bg-primary);
-  border: var(--biokit-input-border-width) solid var(--biokit-border-primary);
-  border-radius: var(--biokit-radius-sm);
+  font-weight: var(--biokit-font-weight-medium);
   color: var(--biokit-text-primary);
-  transition: all var(--biokit-duration-normal) var(--biokit-easing-out);
+  margin-bottom: var(--biokit-spacing-sm);
+}
+
+.biokit-label-required::after {
+  content: "*";
+  color: var(--biokit-error);
+  margin-left: 4px;
+}
+
+/* Helper text and validation messages */
+.biokit-helper-text {
+  font-family: var(--biokit-font-body);
+  font-size: 12px; /* Smaller font size (12px) as specified */
+  font-weight: var(--biokit-font-weight-regular);
+  color: var(--biokit-text-secondary); /* Muted color */
+  margin-top: var(--biokit-spacing-xs);
+  line-height: 1.4;
+}
+
+.biokit-error-message {
+  font-family: var(--biokit-font-body);
+  font-size: 12px; /* Smaller font size (12px) as specified */
+  font-weight: var(--biokit-font-weight-regular);
+  color: #D32F2F; /* Error message in red as specified */
+  margin-top: var(--biokit-spacing-xs);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: var(--biokit-spacing-xs);
+}
+
+.biokit-success-message {
+  font-family: var(--biokit-font-body);
+  font-size: 12px; /* Smaller font size (12px) as specified */
+  font-weight: var(--biokit-font-weight-regular);
+  color: var(--biokit-success); /* Green accent (optional) as specified */
+  margin-top: var(--biokit-spacing-xs);
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: var(--biokit-spacing-xs);
+}
+
+/* Error icon (optional) */
+.biokit-error-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Success checkmark (optional) */
+.biokit-success-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ===== Input Styles ===== */
+.biokit-input,
+.biokit-textarea {
+  font-family: var(--biokit-font-body);
+  font-size: 14px; /* Inter Regular 14px as specified */
+  font-weight: var(--biokit-font-weight-regular);
+  padding: 12px 16px; /* 12px 16px as specified */
+  background-color: var(--biokit-bg-primary); /* White (light) / #2A2A2A (dark) */
+  border: 1px solid #E0E0E0; /* 1px solid #E0E0E0 (light) */
+  border-radius: 8px; /* 8px as specified */
+  color: var(--biokit-text-primary); /* Black (light) / White (dark) */
+  transition: all 150ms ease-out; /* 150ms as specified */
   width: 100%;
+  line-height: 1.5;
 }
 
-.biokit-input:focus {
+/* Dark theme border override */
+.dark-theme .biokit-input,
+.dark-theme .biokit-textarea {
+  border-color: #404040; /* #404040 (dark) as specified */
+}
+
+/* Placeholder styling */
+.biokit-input::placeholder,
+.biokit-textarea::placeholder {
+  color: #999999; /* #999999 (light) as specified */
+}
+
+.dark-theme .biokit-input::placeholder,
+.dark-theme .biokit-textarea::placeholder {
+  color: #666666; /* #666666 (dark) as specified */
+}
+
+/* Focus state */
+.biokit-input:focus,
+.biokit-textarea:focus {
   outline: none;
+  border-width: 2px; /* 2px BioKit Orange border as specified */
   border-color: var(--biokit-orange);
-  box-shadow: 0 0 0 1px var(--biokit-orange);
+  box-shadow: 0 0 0 3px rgba(255, 83, 53, 0.1); /* slight shadow as specified */
+  padding: 11px 15px; /* Adjust padding to compensate for thicker border */
 }
 
-.biokit-input:hover:not(:focus) {
+/* Hover state (when not focused) */
+.biokit-input:hover:not(:focus):not(:disabled),
+.biokit-textarea:hover:not(:focus):not(:disabled) {
   border-color: var(--biokit-border-secondary);
 }
 
-.biokit-input::placeholder {
-  color: var(--biokit-text-tertiary);
+/* Error state */
+.biokit-input-error,
+.biokit-textarea-error {
+  border-color: #D32F2F !important; /* Red border (#D32F2F) as specified */
 }
 
-.biokit-input-error {
-  border-color: var(--biokit-error);
+.biokit-input-error:focus,
+.biokit-textarea-error:focus {
+  border-color: #D32F2F !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
 }
 
-.biokit-input-error:focus {
-  border-color: var(--biokit-error);
+/* Disabled state */
+.biokit-input:disabled,
+.biokit-textarea:disabled {
+  opacity: 0.5; /* 50% opacity as specified */
+  cursor: not-allowed;
+  background-color: var(--biokit-bg-secondary);
+}
+
+/* Textarea specific */
+.biokit-textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 /* ===== Checkbox Styles ===== */
 .biokit-checkbox {
   appearance: none;
-  width: 20px;
+  width: 20px; /* 20px × 20px as specified */
   height: 20px;
-  border: 2px solid var(--biokit-border-primary);
-  border-radius: var(--biokit-radius-sm);
+  border: 2px solid #E0E0E0; /* 2px solid #E0E0E0 (light) as specified */
+  border-radius: 4px; /* 4px (checkbox) as specified */
   background-color: var(--biokit-bg-primary);
   cursor: pointer;
   position: relative;
-  transition: var(--biokit-transition-all);
+  transition: all 150ms ease-out;
+  flex-shrink: 0;
 }
 
-.biokit-checkbox:hover {
+/* Dark theme border */
+.dark-theme .biokit-checkbox {
+  border-color: #404040; /* #404040 (dark) as specified */
+}
+
+.biokit-checkbox:hover:not(:disabled) {
   border-color: var(--biokit-orange);
 }
 
+/* Checked state */
 .biokit-checkbox:checked {
-  background-color: var(--biokit-orange);
+  background-color: var(--biokit-orange); /* BioKit Orange background */
   border-color: var(--biokit-orange);
 }
 
@@ -292,61 +416,153 @@
   top: 2px;
   width: 6px;
   height: 10px;
-  border: solid var(--biokit-white);
+  border: solid #FFFFFF; /* White checkmark as specified */
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
+/* Focus state */
 .biokit-checkbox:focus {
-  outline: 2px solid var(--biokit-orange);
+  outline: 2px solid var(--biokit-orange); /* BioKit Orange outline as specified */
   outline-offset: 2px;
 }
 
+/* Disabled state */
 .biokit-checkbox:disabled {
-  opacity: 0.4;
+  opacity: 0.5; /* 50% opacity */
   cursor: not-allowed;
+}
+
+/* Error state */
+.biokit-checkbox-error {
+  border-color: #D32F2F !important;
 }
 
 /* ===== Radio Button Styles ===== */
 .biokit-radio {
   appearance: none;
-  width: 20px;
+  width: 20px; /* 20px × 20px as specified */
   height: 20px;
-  border: 2px solid var(--biokit-border-primary);
-  border-radius: 50%;
+  border: 2px solid #E0E0E0; /* 2px solid #E0E0E0 (light) as specified */
+  border-radius: 50%; /* 50% (radio) as specified */
   background-color: var(--biokit-bg-primary);
   cursor: pointer;
   position: relative;
-  transition: var(--biokit-transition-all);
+  transition: all 150ms ease-out;
+  flex-shrink: 0;
 }
 
-.biokit-radio:hover {
+/* Dark theme border */
+.dark-theme .biokit-radio {
+  border-color: #404040; /* #404040 (dark) as specified */
+}
+
+.biokit-radio:hover:not(:disabled) {
   border-color: var(--biokit-orange);
 }
 
+/* Checked state */
 .biokit-radio:checked {
+  background-color: var(--biokit-orange); /* BioKit Orange background */
   border-color: var(--biokit-orange);
 }
 
 .biokit-radio:checked::after {
   content: '';
   position: absolute;
-  left: 4px;
-  top: 4px;
+  left: 50%;
+  top: 50%;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--biokit-orange);
+  background-color: #FFFFFF; /* White dot as specified */
+  transform: translate(-50%, -50%);
 }
 
+/* Focus state */
 .biokit-radio:focus {
-  outline: 2px solid var(--biokit-orange);
+  outline: 2px solid var(--biokit-orange); /* BioKit Orange outline as specified */
   outline-offset: 2px;
 }
 
+/* Disabled state */
 .biokit-radio:disabled {
-  opacity: 0.4;
+  opacity: 0.5; /* 50% opacity */
   cursor: not-allowed;
+}
+
+/* Error state */
+.biokit-radio-error {
+  border-color: #D32F2F !important;
+}
+
+/* Checkbox and Radio Label Wrapper */
+.biokit-checkbox-wrapper,
+.biokit-radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--biokit-spacing-sm);
+  cursor: pointer;
+  margin-bottom: var(--biokit-spacing-sm);
+}
+
+.biokit-checkbox-wrapper:last-child,
+.biokit-radio-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.biokit-checkbox-wrapper label,
+.biokit-radio-wrapper label {
+  font-family: var(--biokit-font-body);
+  font-size: var(--biokit-font-size-small);
+  font-weight: var(--biokit-font-weight-regular);
+  color: var(--biokit-text-primary);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0;
+}
+
+/* Disabled wrapper state */
+.biokit-checkbox-wrapper.disabled,
+.biokit-radio-wrapper.disabled {
+  cursor: not-allowed;
+}
+
+.biokit-checkbox-wrapper.disabled label,
+.biokit-radio-wrapper.disabled label {
+  color: var(--biokit-text-tertiary);
+  cursor: not-allowed;
+}
+
+/* Form layout utilities */
+.biokit-form-row {
+  display: flex;
+  gap: var(--biokit-spacing-md);
+  margin-bottom: var(--biokit-spacing-lg);
+}
+
+.biokit-form-row > * {
+  flex: 1;
+}
+
+.biokit-form-actions {
+  display: flex;
+  gap: var(--biokit-spacing-md);
+  margin-top: var(--biokit-spacing-xl);
+  padding-top: var(--biokit-spacing-lg);
+  border-top: 1px solid var(--biokit-border-primary);
+}
+
+.biokit-form-actions-right {
+  justify-content: flex-end;
+}
+
+.biokit-form-actions-center {
+  justify-content: center;
+}
+
+.biokit-form-actions-space-between {
+  justify-content: space-between;
 }
 
 /* ===== Slider Styles ===== */
@@ -412,35 +628,71 @@
 /* ===== Select Dropdown Styles ===== */
 .biokit-select {
   font-family: var(--biokit-font-body);
-  font-size: var(--biokit-font-size-small);
-  padding: var(--biokit-input-padding-y) var(--biokit-input-padding-x);
-  padding-right: 36px;
-  background-color: var(--biokit-bg-primary);
-  border: var(--biokit-input-border-width) solid var(--biokit-border-primary);
-  border-radius: var(--biokit-radius-sm);
-  color: var(--biokit-text-primary);
+  font-size: 14px; /* Inter Regular 14px as specified */
+  font-weight: var(--biokit-font-weight-regular);
+  padding: 12px 16px; /* 12px 16px as specified */
+  padding-right: 40px; /* Extra space for chevron */
+  background-color: var(--biokit-bg-primary); /* White (light) / #2A2A2A (dark) */
+  border: 1px solid #E0E0E0; /* 1px solid #E0E0E0 (light) */
+  border-radius: 8px; /* 8px as specified */
+  color: var(--biokit-text-primary); /* Black (light) / White (dark) */
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  /* Custom chevron in BioKit Orange */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF5335' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 20px;
-  transition: var(--biokit-transition-all);
+  background-position: right 12px center;
+  background-size: 16px;
+  transition: all 150ms ease-out;
+  width: 100%;
 }
 
-.biokit-select:hover {
+/* Dark theme border */
+.dark-theme .biokit-select {
+  border-color: #404040; /* #404040 (dark) as specified */
+}
+
+.biokit-select:hover:not(:disabled) {
   border-color: var(--biokit-border-secondary);
 }
 
+/* Focus state */
 .biokit-select:focus {
   outline: none;
+  border-width: 2px; /* 2px BioKit Orange border */
   border-color: var(--biokit-orange);
-  box-shadow: 0 0 0 1px var(--biokit-orange);
+  box-shadow: 0 0 0 3px rgba(255, 83, 53, 0.1); /* slight shadow */
+  padding: 11px 15px; /* Adjust padding to compensate for thicker border */
+  padding-right: 39px;
 }
 
+/* Error state */
+.biokit-select-error {
+  border-color: #D32F2F !important;
+}
+
+.biokit-select-error:focus {
+  border-color: #D32F2F !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+/* Disabled state */
 .biokit-select:disabled {
-  opacity: 0.4;
+  opacity: 0.5; /* 50% opacity */
   cursor: not-allowed;
+  background-color: var(--biokit-bg-secondary);
+}
+
+/* Option styling (for native select) */
+.biokit-select option {
+  padding: 8px;
+  background-color: var(--biokit-bg-primary);
+  color: var(--biokit-text-primary);
+}
+
+.biokit-select option:hover {
+  background-color: var(--biokit-orange);
+  color: #FFFFFF;
 }
 
 /* ===== Panel Styles ===== */
