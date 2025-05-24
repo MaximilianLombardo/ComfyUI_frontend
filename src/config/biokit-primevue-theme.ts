@@ -68,10 +68,10 @@ export const BioKitPreset = definePreset(Aura, {
           hoverColor: '#000000'
         },
         highlight: {
-          background: '#FF5335',
-          focusBackground: '#E64A30',
-          color: '#FFFFFF',
-          focusColor: '#FFFFFF'
+          background: 'rgba(255, 83, 53, 0.1)',
+          focusBackground: 'rgba(255, 83, 53, 0.2)',
+          color: '#FF5335',
+          focusColor: '#FF5335'
         },
         mask: {
           background: 'rgba(0, 0, 0, 0.4)',
@@ -156,10 +156,10 @@ export const BioKitPreset = definePreset(Aura, {
           hoverColor: '#FFFFFF'
         },
         highlight: {
-          background: '#FF5335',
-          focusBackground: '#FF7755',
-          color: '#FFFFFF',
-          focusColor: '#FFFFFF'
+          background: 'rgba(255, 83, 53, 0.15)',
+          focusBackground: 'rgba(255, 83, 53, 0.25)',
+          color: '#FF5335',
+          focusColor: '#FF5335'
         },
         mask: {
           background: 'rgba(0, 0, 0, 0.8)',
@@ -204,13 +204,19 @@ export const BioKitPreset = definePreset(Aura, {
       borderRadius: '8px',
       paddingX: '24px',
       paddingY: '12px',
+      fontSize: '14px',
+      fontWeight: '500',
+      transition: {
+        duration: '150ms',
+        timingFunction: 'ease-out'
+      },
       sm: {
-        fontSize: '0.875rem',
+        fontSize: '12px',
         paddingX: '16px',
         paddingY: '8px'
       },
       lg: {
-        fontSize: '1.125rem',
+        fontSize: '16px',
         paddingX: '32px',
         paddingY: '16px'
       },
@@ -219,17 +225,19 @@ export const BioKitPreset = definePreset(Aura, {
           root: {
             primary: {
               background: '#FF5335',
-              hoverBackground: '#E64A30',
-              activeBackground: '#CC3F2A',
+              hoverBackground: '#E03D20',
+              activeBackground: '#CC3015',
               borderColor: '#FF5335',
-              hoverBorderColor: '#E64A30',
-              activeBorderColor: '#CC3F2A',
+              hoverBorderColor: '#E03D20',
+              activeBorderColor: '#CC3015',
               color: '#FFFFFF',
               hoverColor: '#FFFFFF',
               activeColor: '#FFFFFF',
+              disabledOpacity: '0.5',
               focusRing: {
-                color: 'rgba(255, 83, 53, 0.2)',
-                shadow: '0 0 0 0.2rem rgba(255, 83, 53, 0.2)'
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
               }
             },
             secondary: {
@@ -242,10 +250,41 @@ export const BioKitPreset = definePreset(Aura, {
               color: '#000000',
               hoverColor: '#FF5335',
               activeColor: '#FFFFFF',
+              borderWidth: '2px',
+              paddingX: '22px',
+              paddingY: '10px',
+              disabledOpacity: '0.5',
               focusRing: {
-                color: 'rgba(255, 83, 53, 0.2)',
-                shadow: '0 0 0 0.2rem rgba(255, 83, 53, 0.2)'
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
               }
+            },
+            text: {
+              background: 'transparent',
+              hoverBackground: 'transparent',
+              activeBackground: '#FF5335',
+              borderColor: 'transparent',
+              hoverBorderColor: 'transparent',
+              activeBorderColor: 'transparent',
+              color: '#000000',
+              hoverColor: '#FF5335',
+              activeColor: '#FFFFFF',
+              disabledOpacity: '0.5',
+              focusRing: {
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
+              }
+            }
+          },
+          icon: {
+            onlyIcon: {
+              width: '40px',
+              height: '40px',
+              borderRadius: '8px',
+              paddingX: '0',
+              paddingY: '0'
             }
           }
         },
@@ -253,17 +292,19 @@ export const BioKitPreset = definePreset(Aura, {
           root: {
             primary: {
               background: '#FF5335',
-              hoverBackground: '#FF7755',
-              activeBackground: '#E64A30',
+              hoverBackground: '#E03D20',
+              activeBackground: '#CC3015',
               borderColor: '#FF5335',
-              hoverBorderColor: '#FF7755',
-              activeBorderColor: '#E64A30',
+              hoverBorderColor: '#E03D20',
+              activeBorderColor: '#CC3015',
               color: '#FFFFFF',
               hoverColor: '#FFFFFF',
               activeColor: '#FFFFFF',
+              disabledOpacity: '0.5',
               focusRing: {
-                color: 'rgba(255, 83, 53, 0.2)',
-                shadow: '0 0 0 0.2rem rgba(255, 83, 53, 0.2)'
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
               }
             },
             secondary: {
@@ -276,10 +317,41 @@ export const BioKitPreset = definePreset(Aura, {
               color: '#FFFFFF',
               hoverColor: '#FF5335',
               activeColor: '#FFFFFF',
+              borderWidth: '2px',
+              paddingX: '22px',
+              paddingY: '10px',
+              disabledOpacity: '0.5',
               focusRing: {
-                color: 'rgba(255, 83, 53, 0.2)',
-                shadow: '0 0 0 0.2rem rgba(255, 83, 53, 0.2)'
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
               }
+            },
+            text: {
+              background: 'transparent',
+              hoverBackground: 'transparent',
+              activeBackground: '#FF5335',
+              borderColor: 'transparent',
+              hoverBorderColor: 'transparent',
+              activeBorderColor: 'transparent',
+              color: '#FFFFFF',
+              hoverColor: '#FF5335',
+              activeColor: '#FFFFFF',
+              disabledOpacity: '0.5',
+              focusRing: {
+                color: '#FF5335',
+                offset: '2px',
+                shadow: 'none'
+              }
+            }
+          },
+          icon: {
+            onlyIcon: {
+              width: '40px',
+              height: '40px',
+              borderRadius: '8px',
+              paddingX: '0',
+              paddingY: '0'
             }
           }
         }

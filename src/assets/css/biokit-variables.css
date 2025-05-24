@@ -154,9 +154,9 @@
   --biokit-button-padding-y-sm: 6px;
   --biokit-button-padding-x-lg: 28px;
   --biokit-button-padding-y-lg: 14px;
-  --biokit-button-icon-size: 32px;
-  --biokit-button-icon-size-sm: 24px;
-  --biokit-button-icon-size-lg: 40px;
+  --biokit-button-icon-size: 40px;
+  --biokit-button-icon-size-sm: 32px;
+  --biokit-button-icon-size-lg: 48px;
   
   /* Inputs */
   --biokit-input-padding-x: 12px;

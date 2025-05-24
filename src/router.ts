@@ -116,6 +116,11 @@ const router = createRouter({
           name: 'DesktopUpdateView',
           component: () => import('@/views/DesktopUpdateView.vue'),
           beforeEnter: guardElectronAccess
+        },
+        {
+          path: 'biokit-button-demo',
+          name: 'BioKitButtonDemo',
+          component: () => import('@/views/BioKitButtonDemo.vue')
         }
       ]
     }
