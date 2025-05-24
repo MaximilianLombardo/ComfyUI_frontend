@@ -5,51 +5,270 @@
 
 /* Import CSS layer for proper ordering */
 @layer primevue {
-  /* ===== Button Component Overrides ===== */
+  /* ========================================
+     BUTTON COMPONENT OVERRIDES
+     ======================================== */
+  
+  /* Base button styles - applies to ALL PrimeVue buttons */
   .p-button {
     font-family: var(--biokit-font-body);
     font-weight: var(--biokit-font-weight-medium);
-    font-size: var(--biokit-font-size-small);
-    transition-duration: var(--biokit-duration-normal);
-    transition-timing-function: var(--biokit-easing-smooth);
+    font-size: 14px;
+    border-radius: 8px;
+    transition: all 150ms ease-out;
+    min-height: 44px;
   }
 
-  /* Primary button specific styles */
-  .p-button.p-button-primary:not(:disabled):hover {
+  /* Primary button - simplified selectors */
+  .p-button-primary {
+    background-color: #FF5335 !important;
+    border-color: #FF5335 !important;
+    color: #FFFFFF !important;
+    padding: 12px 24px;
+  }
+  
+
+  .p-button-primary:hover:not(:disabled) {
+    background-color: #E03D20 !important;
+    border-color: #E03D20 !important;
     transform: translateY(-1px);
     box-shadow: var(--biokit-shadow-md);
   }
 
-  .p-button.p-button-primary:not(:disabled):active {
+  .p-button-primary:active:not(:disabled) {
+    background-color: #CC3015 !important;
+    border-color: #CC3015 !important;
     transform: translateY(0);
+    box-shadow: var(--biokit-shadow-sm);
+  }
+  
+  /* Primary icon-only buttons */
+  .p-button-primary.p-button-icon-only {
+    background-color: #FF5335 !important;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
   }
 
-  /* Secondary button with proper border width */
-  .p-button.p-button-secondary {
-    border-width: 2px;
-  }
-
-  /* Secondary button text color fix for dark mode */
-  .p-button.p-button-secondary.p-button-text {
+  /* Secondary button - simplified */
+  .p-button-secondary:not(.side-bar-button) {
+    background-color: transparent;
+    border: 2px solid var(--fg-color);
     color: var(--fg-color);
+    padding: 10px 22px;
   }
 
-  .p-button.p-button-secondary.p-button-text:hover {
+  .p-button-secondary:hover:not(:disabled) {
+    background-color: transparent;
+    border-color: var(--biokit-orange);
     color: var(--biokit-orange);
+    transform: translateY(-1px);
+    box-shadow: var(--biokit-shadow-md);
   }
 
-  /* Icon button sizing */
-  .p-button.p-button-icon-only {
+  .p-button-secondary:active:not(:disabled) {
+    background-color: var(--biokit-orange);
+    border-color: var(--biokit-orange);
+    color: #FFFFFF;
+    transform: translateY(0);
+    box-shadow: var(--biokit-shadow-sm);
+  }
+
+  /* Icon button - simplified */
+  .p-button-icon-only:not(.p-button-primary) {
     width: 40px;
     height: 40px;
     padding: 0;
-    border-width: 1px;
+    min-height: 40px;
+    background-color: transparent;
+    color: var(--fg-color);
+  }
+
+  /* Icon button borders */
+  .p-button-icon-only.p-button-secondary:not(.side-bar-button) {
+    border: 1px solid #E0E0E0;
+  }
+
+  .dark-theme .p-button-icon-only.p-button-secondary:not(.side-bar-button) {
+    border: 1px solid #333333;
+  }
+
+  /* Sidebar buttons - simplified */
+  .side-bar-button {
+    border: none !important;
+    background-color: transparent !important;
+  }
+  
+  .side-tool-bar-container .p-button.side-bar-button:hover {
+    border: none !important;
+    background-color: rgba(255, 83, 53, 0.1) !important;
+  }
+  
+  .dark-theme .side-tool-bar-container .p-button.side-bar-button:hover {
+    background-color: rgba(255, 83, 53, 0.2) !important;
+  }
+
+  .p-button.p-button-icon-only:not(.p-splitbutton-dropdown):not(:disabled):hover {
+    background-color: transparent;
+    border-color: var(--biokit-orange);
+    color: var(--biokit-orange);
+  }
+
+  .p-button.p-button-icon-only:not(.p-splitbutton-dropdown):not(:disabled):active {
+    background-color: var(--biokit-orange);
+    border-color: var(--biokit-orange);
+    color: #FFFFFF;
+  }
+
+  /* Size variants */
+  .p-button.p-button-sm {
+    font-size: 12px;
+    padding: 8px 16px;
+    min-height: 36px;
+  }
+
+  .p-button.p-button-lg {
+    font-size: 16px;
+    padding: 16px 32px;
+    min-height: 52px;
+  }
+
+  .p-button.p-button-icon-only.p-button-sm {
+    width: 32px;
+    height: 32px;
+    min-height: 32px;
+  }
+
+  .p-button.p-button-icon-only.p-button-lg {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+  }
+
+  /* Button focus state */
+  .p-button:focus {
+    outline: 2px solid var(--biokit-orange);
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  .p-button:focus:not(:focus-visible) {
+    outline: none;
   }
 
   /* Button disabled state */
   .p-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ===== SplitButton Component Overrides ===== */
+  .p-splitbutton {
+    border-radius: 8px;
+    overflow: visible;
+    display: inline-flex;
+    align-items: stretch;
+    /* Remove fixed height to allow buttons to use their min-height */
+  }
+
+  .p-splitbutton .p-splitbutton-defaultbutton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Let it inherit min-height from .p-button (44px) */
+  }
+
+  .p-splitbutton .p-splitbutton-dropdown {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    width: 44px; /* Match the min-height for square aspect */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Let it inherit min-height from .p-button (44px) */
+  }
+
+  /* Override all split button dropdowns to be primary styled */
+  .p-splitbutton-dropdown,
+  .p-splitbutton .p-splitbutton-dropdown,
+  .p-splitbutton .p-button.p-splitbutton-dropdown {
+    background: #FF5335 !important;
+    background-color: #FF5335 !important;
+    border-color: #FF5335 !important;
+    color: #FFFFFF !important;
+    min-height: 44px !important; /* Force full height */
+    height: 100% !important;
+  }
+
+  .p-splitbutton-dropdown:not(:disabled):hover,
+  .p-splitbutton .p-splitbutton-dropdown:not(:disabled):hover,
+  .p-splitbutton .p-button.p-splitbutton-dropdown:not(:disabled):hover {
+    background: #E03D20 !important;
+    background-color: #E03D20 !important;
+    border-color: #E03D20 !important;
+  }
+
+  .p-splitbutton-dropdown:not(:disabled):active,
+  .p-splitbutton .p-splitbutton-dropdown:not(:disabled):active,
+  .p-splitbutton .p-button.p-splitbutton-dropdown:not(:disabled):active {
+    background: #CC3015 !important;
+    background-color: #CC3015 !important;
+    border-color: #CC3015 !important;
+  }
+  
+  /* Ensure dropdown icon is white */
+  .p-splitbutton-dropdown .p-icon,
+  .p-splitbutton-dropdown svg,
+  .p-splitbutton .p-splitbutton-dropdown .p-icon,
+  .p-splitbutton .p-splitbutton-dropdown svg {
+    color: #FFFFFF !important;
+    fill: currentColor !important;
+  }
+
+  /* Ensure dropdown button has same styling as main button */
+  .p-splitbutton .p-splitbutton-dropdown.p-button {
+    font-size: 14px;
+    font-weight: var(--biokit-font-weight-medium);
+    transition: all 150ms ease-out;
+  }
+
+  /* Small size adjustments - inherit from base button */
+  .p-splitbutton.p-button-sm .p-splitbutton-dropdown {
+    width: 44px; /* Keep square aspect ratio matching button height */
+  }
+
+  /* Fix dropdown icon color and size */
+  .p-splitbutton .p-splitbutton-dropdown .p-button-icon {
+    color: #FFFFFF;
+    font-size: 12px;
+  }
+
+  /* Queue button specific border radius fix */
+  .comfyui-queue-button .p-splitbutton-dropdown {
+    border-radius: 0 8px 8px 0 !important;
+  }
+
+  /* Fix icon and text alignment in buttons */
+  .p-button-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .p-button.p-button-icon-left .p-button-label {
+    margin-left: 0;
+  }
+
+  .p-button.p-button-icon-left .p-button-icon {
+    margin-right: 8px;
   }
 
   /* ===== Input Component Overrides ===== */
@@ -327,6 +546,13 @@
   }
 }
 
-.p-button-primary:focus {
-  animation: biokit-pulse 1.5s infinite;
+/* ===== TopMenubar Overrides ===== */
+/* Disable visual feedback when dragging over the topbar */
+.comfyui-menu.dropzone {
+  background: var(--comfy-menu-bg) !important;
 }
+
+.comfyui-menu.dropzone-active {
+  background: var(--comfy-menu-bg) !important;
+}
+

@@ -84,22 +84,20 @@
   margin-bottom: var(--biokit-spacing-xs);
 }
 
-/* Typography utilities */
-.biokit-text-no-margin { margin: 0 !important; }
-.biokit-text-small-margin { margin-bottom: var(--biokit-spacing-sm) !important; }
-.biokit-text-normal-margin { margin-bottom: var(--biokit-spacing-md) !important; }
-.biokit-text-large-margin { margin-bottom: var(--biokit-spacing-lg) !important; }
+/* Use Tailwind margin utilities instead:
+   m-0, mb-2, mb-4, mb-6, etc.
+   Or with BioKit spacing: mb-[var(--biokit-spacing-sm)] */
 
 /* ===== Button Styles ===== */
+/* Base button class with common styles */
 .biokit-button {
   font-family: var(--biokit-font-body);
-  font-size: var(--biokit-font-size-small);
+  font-size: 14px; /* Inter Medium 14px as specified */
   font-weight: var(--biokit-font-weight-medium);
-  padding: var(--biokit-button-padding-y) var(--biokit-button-padding-x);
-  border-radius: var(--biokit-radius-md);
+  line-height: 1;
   border: none;
   cursor: pointer;
-  transition: all var(--biokit-duration-normal) var(--biokit-easing-out);
+  transition: all 150ms ease-out; /* 150ms ease-out as specified */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +105,7 @@
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  min-height: 44px; /* Ensure minimum touch target */
 }
 
 .biokit-button:focus {
@@ -120,68 +119,113 @@
 
 .biokit-button:disabled {
   cursor: not-allowed;
-  opacity: 0.4;
+  opacity: 0.5; /* 50% opacity as specified */
   transform: none !important;
   box-shadow: none !important;
 }
 
 /* Primary Button */
-.biokit-button-primary {
-  background-color: var(--biokit-orange);
-  color: var(--biokit-white);
+.biokit-btn-primary {
+  background-color: #FF5335; /* BioKit Orange */
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
 }
 
-.biokit-button-primary:hover:not(:disabled) {
-  background-color: var(--biokit-orange-hover);
+.biokit-btn-primary:hover:not(:disabled) {
+  background-color: #E03D20; /* Darker orange as specified */
   transform: translateY(-1px);
   box-shadow: var(--biokit-shadow-md);
 }
 
-.biokit-button-primary:active:not(:disabled) {
-  background-color: var(--biokit-orange-active);
+.biokit-btn-primary:active:not(:disabled) {
+  background-color: #CC3015; /* Even darker as specified */
   transform: translateY(0);
   box-shadow: var(--biokit-shadow-sm);
 }
 
 /* Secondary Button */
-.biokit-button-secondary {
-  background-color: var(--biokit-bg-primary);
-  color: var(--biokit-text-primary);
-  border: 2px solid var(--biokit-black);
+.biokit-btn-secondary {
+  background-color: transparent;
+  color: var(--biokit-text-primary); /* Black (light) / White (dark) */
+  border: 2px solid var(--biokit-text-primary);
+  padding: 10px 22px; /* Accounting for border */
+  border-radius: 8px;
 }
 
-.biokit-button-secondary:hover:not(:disabled) {
-  background-color: var(--biokit-bg-secondary);
+.biokit-btn-secondary:hover:not(:disabled) {
+  color: var(--biokit-orange);
+  border-color: var(--biokit-orange);
   transform: translateY(-1px);
   box-shadow: var(--biokit-shadow-md);
 }
 
-.biokit-button-secondary:active:not(:disabled) {
+.biokit-btn-secondary:active:not(:disabled) {
+  background-color: var(--biokit-orange);
+  color: #FFFFFF;
+  border-color: var(--biokit-orange);
   transform: translateY(0);
   box-shadow: var(--biokit-shadow-sm);
 }
 
-.dark-theme .biokit-button-secondary {
-  border-color: var(--biokit-white);
-}
-
 /* Icon Button */
-.biokit-button-icon {
-  width: var(--biokit-button-icon-size);
-  height: var(--biokit-button-icon-size);
+.biokit-btn-icon {
+  width: 40px;
+  height: 40px;
   padding: 0;
   background-color: transparent;
   color: var(--biokit-text-primary);
-  border-radius: var(--biokit-radius-md);
+  border: 1px solid #E0E0E0; /* Light theme border */
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
 }
 
-.biokit-button-icon:hover:not(:disabled) {
-  background-color: var(--biokit-bg-secondary);
+.dark-theme .biokit-btn-icon {
+  border-color: #333333; /* Dark theme border */
 }
 
-.biokit-button-icon:active:not(:disabled) {
+.biokit-btn-icon:hover:not(:disabled) {
+  color: var(--biokit-orange);
+  border-color: var(--biokit-orange);
+}
+
+.biokit-btn-icon:active:not(:disabled) {
   background-color: var(--biokit-orange);
-  color: var(--biokit-white);
+  color: #FFFFFF;
+  border-color: var(--biokit-orange);
+}
+
+/* Button variants now inherit from base button class via CSS cascade */
+/* Apply the base .biokit-button class in HTML along with variant classes */
+
+/* Button size variants */
+.biokit-btn-small {
+  padding: 8px 16px;
+  font-size: 12px;
+  min-height: 32px;
+}
+
+.biokit-btn-large {
+  padding: 16px 32px;
+  font-size: 16px;
+  min-height: 52px;
+}
+
+/* Icon button size variants */
+.biokit-btn-icon.biokit-btn-small {
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+}
+
+.biokit-btn-icon.biokit-btn-large {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
 }
 
 /* ===== Input Styles ===== */
@@ -199,9 +243,8 @@
 
 .biokit-input:focus {
   outline: none;
-  border-width: var(--biokit-input-border-width-focus);
   border-color: var(--biokit-orange);
-  padding: calc(var(--biokit-input-padding-y) - 1px) calc(var(--biokit-input-padding-x) - 1px);
+  box-shadow: 0 0 0 1px var(--biokit-orange);
 }
 
 .biokit-input:hover:not(:focus) {
@@ -391,10 +434,8 @@
 
 .biokit-select:focus {
   outline: none;
-  border-width: var(--biokit-input-border-width-focus);
   border-color: var(--biokit-orange);
-  padding: calc(var(--biokit-input-padding-y) - 1px) calc(var(--biokit-input-padding-x) - 1px);
-  padding-right: 35px;
+  box-shadow: 0 0 0 1px var(--biokit-orange);
 }
 
 .biokit-select:disabled {
@@ -507,18 +548,8 @@
   outline-offset: 2px;
 }
 
-/* ===== Utility Classes ===== */
-.biokit-text-primary { color: var(--biokit-text-primary); }
-.biokit-text-secondary { color: var(--biokit-text-secondary); }
-.biokit-text-tertiary { color: var(--biokit-text-tertiary); }
-.biokit-text-orange { color: var(--biokit-orange); }
-.biokit-text-success { color: var(--biokit-success); }
-.biokit-text-warning { color: var(--biokit-warning); }
-.biokit-text-error { color: var(--biokit-error); }
-
-.biokit-bg-primary { background-color: var(--biokit-bg-primary); }
-.biokit-bg-secondary { background-color: var(--biokit-bg-secondary); }
-.biokit-bg-orange { background-color: var(--biokit-orange); }
-
-.biokit-border-primary { border-color: var(--biokit-border-primary); }
-.biokit-border-orange { border-color: var(--biokit-orange); }
+/* Use Tailwind arbitrary values instead of utility classes:
+ * text-[var(--biokit-text-primary)]
+ * bg-[var(--biokit-bg-primary)]
+ * border-[var(--biokit-border-primary)]
+ */
