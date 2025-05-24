@@ -1,6 +1,4 @@
 import '@comfyorg/litegraph/style.css'
-import { definePreset } from '@primevue/themes'
-import Aura from '@primevue/themes/aura'
 import * as Sentry from '@sentry/vue'
 import { initializeApp } from 'firebase/app'
 import { createPinia } from 'pinia'
@@ -13,24 +11,16 @@ import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
 
 import '@/assets/css/biokit-components.css'
+import '@/assets/css/biokit-primevue-overrides.css'
 import '@/assets/css/biokit-theme.css'
 import '@/assets/css/biokit-variables.css'
 import '@/assets/css/style.css'
+import { BioKitPreset } from '@/config/biokit-primevue-theme'
 import { FIREBASE_CONFIG } from '@/config/firebase'
 import router from '@/router'
 
 import App from './App.vue'
 import { i18n } from './i18n'
-
-const ComfyUIPreset = definePreset(Aura, {
-  semantic: {
-    primary: {
-      color: '#FF5335',
-      500: '#FF5335',
-      600: '#D83100'
-    }
-  }
-})
 
 const firebaseApp = initializeApp(FIREBASE_CONFIG)
 
@@ -52,7 +42,7 @@ app
   .use(router)
   .use(PrimeVue, {
     theme: {
-      preset: ComfyUIPreset,
+      preset: BioKitPreset,
       options: {
         prefix: 'p',
         cssLayer: {

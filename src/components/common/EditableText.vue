@@ -71,6 +71,7 @@ const vFocus = {
 <style scoped>
 .editable-text {
   display: inline;
+  color: var(--fg-color);
 }
 .editable-text input {
   width: 100%;

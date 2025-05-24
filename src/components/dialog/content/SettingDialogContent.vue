@@ -50,7 +50,9 @@
         <Suspense v-for="panel in panels" :key="panel.node.key">
           <component :is="panel.component" />
           <template #fallback>
-            <div>Loading {{ panel.node.label }} panel...</div>
+            <div class="text-muted">
+              Loading {{ panel.node.label }} panel...
+            </div>
           </template>
         </Suspense>
       </TabPanels>
@@ -158,6 +160,7 @@ watch(activeCategory, (_, oldValue) => {
   width: 60vw;
   max-width: 64rem;
   overflow: hidden;
+  color: var(--fg-color);
 }
 
 .settings-content {

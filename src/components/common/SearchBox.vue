@@ -48,8 +48,7 @@ import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import InputText from 'primevue/inputtext'
 
-import type { SearchFilter } from './SearchFilterChip.vue'
-import SearchFilterChip from './SearchFilterChip.vue'
+import SearchFilterChip, { type SearchFilter } from './SearchFilterChip.vue'
 
 const {
   modelValue,
@@ -96,6 +95,32 @@ const clearSearch = () => {
 }
 
 .p-button.p-inputicon {
-  @apply p-0 w-auto border-none;
+  padding: 0;
+  width: auto;
+  border: none;
+}
+
+/* Ensure filter button is vertically centered */
+:deep(.p-iconfield) {
+  display: flex;
+  align-items: center;
+}
+
+.filter-button {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-30%);
+  z-index: 1;
+  color: var(--biokit-text-tertiary);
+}
+
+.filter-button:hover {
+  color: var(--fg-color);
+}
+
+/* Add padding to input when filter button is present */
+.filter-button + .search-box-input :deep(input) {
+  padding-left: 2.5rem;
 }
 </style>

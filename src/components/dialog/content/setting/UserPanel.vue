@@ -55,7 +55,7 @@
         <ProgressSpinner
           v-if="loading"
           class="w-8 h-8 mt-4"
-          style="--pc-spinner-color: #000"
+          style="--pc-spinner-color: var(--fg-color)"
         />
         <Button
           v-else
@@ -69,7 +69,7 @@
 
       <!-- Login Section -->
       <div v-else class="flex flex-col gap-4">
-        <p class="text-gray-600">
+        <p class="text-[var(--descrip-text)]">
           {{ $t('auth.login.title') }}
         </p>
 

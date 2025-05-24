@@ -143,6 +143,7 @@ usePragmaticDroppable(tabGetter, {
   line-height: 1;
   display: flex;
   align-items: center;
+  color: var(--fg-color);
 }
 
 .status-indicator {
@@ -151,5 +152,6 @@ usePragmaticDroppable(tabGetter, {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--fg-color);
 }
 </style>

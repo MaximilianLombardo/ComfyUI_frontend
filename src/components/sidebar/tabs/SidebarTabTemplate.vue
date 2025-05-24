@@ -6,7 +6,10 @@
     <div class="comfy-vue-side-bar-header">
       <Toolbar class="border-x-0 border-t-0 rounded-none px-2 py-1 min-h-8">
         <template #start>
-          <span class="text-xs 2xl:text-sm truncate" :title="props.title">
+          <span
+            class="text-xs 2xl:text-sm truncate text-[var(--fg-color)]"
+            :title="props.title"
+          >
             {{ props.title.toUpperCase() }}
           </span>
         </template>

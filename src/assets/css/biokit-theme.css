@@ -1,52 +1,54 @@
 /* Base theme (light mode) */
 :root {
-  --fg-color: #000000 !important;
-  --bg-color: #FFFFFF !important;
-  --comfy-menu-bg: #F8F8F8 !important;
-  --comfy-menu-secondary-bg: #F0F0F0 !important;
-  --comfy-input-bg: #F8F8F8 !important;
-  --input-text: #000000 !important;
-  --descrip-text: #666666 !important;
+  /* Map BioKit variables to legacy variables */
+  --fg-color: var(--biokit-text-primary) !important;
+  --bg-color: var(--biokit-bg-primary) !important;
+  --comfy-menu-bg: var(--biokit-bg-secondary) !important;
+  --comfy-menu-secondary-bg: var(--biokit-bg-tertiary) !important;
+  --comfy-input-bg: var(--biokit-bg-secondary) !important;
+  --input-text: var(--biokit-text-primary) !important;
+  --descrip-text: var(--biokit-text-secondary) !important;
   --drag-text: #B0B0B0 !important;
-  --error-text: #D83100 !important;
-  --border-color: #B0B0B0 !important;
-  --tr-even-bg-color: #F8F8F8 !important;
-  --tr-odd-bg-color: #FFFFFF !important;
-  --primary-bg: #FF5335 !important;
-  --primary-fg: #FFFFFF !important;
-  --primary-hover-bg: #FF7755 !important;
-  --primary-hover-fg: #FFFFFF !important;
-  --content-bg: #F0F0F0 !important;
-  --content-fg: #000000 !important;
+  --error-text: var(--biokit-error) !important;
+  --border-color: var(--biokit-border-secondary) !important;
+  --tr-even-bg-color: var(--biokit-bg-secondary) !important;
+  --tr-odd-bg-color: var(--biokit-bg-primary) !important;
+  --primary-bg: var(--biokit-orange) !important;
+  --primary-fg: var(--biokit-white) !important;
+  --primary-hover-bg: var(--biokit-orange-hover) !important;
+  --primary-hover-fg: var(--biokit-white) !important;
+  --content-bg: var(--biokit-bg-tertiary) !important;
+  --content-fg: var(--biokit-text-primary) !important;
   --content-hover-bg: #E0E0E0 !important;
-  --content-hover-fg: #000000 !important;
-  --sidebar-bg: #F0F0F0 !important;
-  --sidebar-fg: #333333 !important;
-  --sidebar-selected: #FF5335 !important;
-  --bar-shadow: 2px 0 5px rgba(0, 0, 0, 0.1) !important;
+  --content-hover-fg: var(--biokit-text-primary) !important;
+  --sidebar-bg: var(--biokit-bg-tertiary) !important;
+  --sidebar-fg: var(--biokit-text-primary) !important;
+  --sidebar-selected: var(--biokit-orange) !important;
+  --bar-shadow: var(--biokit-shadow-md) !important;
 }
 
 /* Dark theme */
 .dark-theme {
-  --fg-color: #FFFFFF !important;
-  --bg-color: #000000 !important;
+  /* Map BioKit variables to legacy variables */
+  --fg-color: var(--biokit-text-primary) !important;
+  --bg-color: var(--biokit-bg-primary) !important;
   --comfy-menu-bg: #111111 !important;
-  --comfy-menu-secondary-bg: #000000 !important; /* True black for sidebar */
-  --comfy-input-bg: #222222 !important;
-  --input-text: #FFFFFF !important;
-  --descrip-text: #B0B0B0 !important;
+  --comfy-menu-secondary-bg: var(--biokit-bg-primary) !important; /* True black for sidebar */
+  --comfy-input-bg: var(--biokit-bg-secondary) !important;
+  --input-text: var(--biokit-text-primary) !important;
+  --descrip-text: var(--biokit-text-secondary) !important;
   --drag-text: #999999 !important;
-  --content-bg: #333333 !important;
-  --content-fg: #FFFFFF !important;
+  --content-bg: var(--biokit-bg-tertiary) !important;
+  --content-fg: var(--biokit-text-primary) !important;
   --content-hover-bg: #444444 !important;
-  --content-hover-fg: #FFFFFF !important;
-  --border-color: #444444 !important;
+  --content-hover-fg: var(--biokit-text-primary) !important;
+  --border-color: var(--biokit-border-primary) !important;
   --tr-even-bg-color: #111111 !important;
-  --tr-odd-bg-color: #222222 !important;
-  --sidebar-bg: #000000 !important;
-  --sidebar-fg: #DDDDDD !important;
-  --sidebar-selected: #FF5335 !important;
-  --bar-shadow: 2px 0 5px rgba(0, 0, 0, 0.3) !important;
+  --tr-odd-bg-color: var(--biokit-bg-secondary) !important;
+  --sidebar-bg: var(--biokit-bg-primary) !important;
+  --sidebar-fg: var(--biokit-text-primary) !important;
+  --sidebar-selected: var(--biokit-orange) !important;
+  --bar-shadow: var(--biokit-shadow-md) !important;
 }
 
 /* Specific sidebar styling */

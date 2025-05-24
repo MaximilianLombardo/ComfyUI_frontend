@@ -1,0 +1,332 @@
+/**
+ * BioKit PrimeVue Component Overrides
+ * Additional CSS to ensure PrimeVue components fully align with BioKit design system
+ */
+
+/* Import CSS layer for proper ordering */
+@layer primevue {
+  /* ===== Button Component Overrides ===== */
+  .p-button {
+    font-family: var(--biokit-font-body);
+    font-weight: var(--biokit-font-weight-medium);
+    font-size: var(--biokit-font-size-small);
+    transition-duration: var(--biokit-duration-normal);
+    transition-timing-function: var(--biokit-easing-smooth);
+  }
+
+  /* Primary button specific styles */
+  .p-button.p-button-primary:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: var(--biokit-shadow-md);
+  }
+
+  .p-button.p-button-primary:not(:disabled):active {
+    transform: translateY(0);
+  }
+
+  /* Secondary button with proper border width */
+  .p-button.p-button-secondary {
+    border-width: 2px;
+  }
+
+  /* Secondary button text color fix for dark mode */
+  .p-button.p-button-secondary.p-button-text {
+    color: var(--fg-color);
+  }
+
+  .p-button.p-button-secondary.p-button-text:hover {
+    color: var(--biokit-orange);
+  }
+
+  /* Icon button sizing */
+  .p-button.p-button-icon-only {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-width: 1px;
+  }
+
+  /* Button disabled state */
+  .p-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* ===== Input Component Overrides ===== */
+  .p-inputtext,
+  .p-textarea,
+  .p-select,
+  .p-multiselect,
+  .p-dropdown {
+    font-family: var(--biokit-font-body);
+    font-size: var(--biokit-font-size-small);
+    transition-duration: var(--biokit-duration-normal);
+    transition-timing-function: var(--biokit-easing-smooth);
+    color: var(--input-text);
+    background-color: var(--comfy-input-bg);
+  }
+
+  /* Focus state with BioKit Orange */
+  .p-inputtext:focus,
+  .p-textarea:focus,
+  .p-select:focus,
+  .p-multiselect:focus,
+  .p-dropdown:focus {
+    border-width: 2px;
+    padding: 11px 15px; /* Adjust padding to account for thicker border */
+    box-shadow: var(--biokit-shadow-active);
+  }
+
+  /* Input placeholder styling */
+  .p-inputtext::placeholder,
+  .p-textarea::placeholder {
+    color: var(--biokit-text-tertiary);
+    opacity: 1;
+  }
+
+  /* ===== Select/Dropdown Component Overrides ===== */
+  .p-select-label,
+  .p-dropdown-label {
+    font-family: var(--biokit-font-body);
+  }
+
+  .p-select-overlay,
+  .p-dropdown-overlay {
+    box-shadow: var(--biokit-shadow-lg);
+    border-radius: var(--biokit-radius-lg);
+  }
+
+  .p-select-option:hover,
+  .p-dropdown-item:hover {
+    background-color: var(--biokit-orange);
+    color: var(--biokit-white);
+  }
+
+  /* ===== Checkbox & Radio Overrides ===== */
+  .p-checkbox,
+  .p-radiobutton {
+    transition-duration: var(--biokit-duration-fast);
+  }
+
+  .p-checkbox-box,
+  .p-radiobutton-box {
+    border-width: 2px;
+  }
+
+  .p-checkbox:not(.p-disabled):hover .p-checkbox-box,
+  .p-radiobutton:not(.p-disabled):hover .p-radiobutton-box {
+    border-color: var(--biokit-orange);
+  }
+
+  /* ===== Dialog Component Overrides ===== */
+  .p-dialog {
+    font-family: var(--biokit-font-body);
+    box-shadow: var(--biokit-shadow-xl);
+  }
+
+  .p-dialog-header {
+    font-family: var(--biokit-font-heading);
+    font-weight: var(--biokit-font-weight-semibold);
+    font-size: var(--biokit-font-size-h4);
+  }
+
+  .p-dialog-mask {
+    backdrop-filter: blur(4px);
+  }
+
+  /* ===== Toast Component Overrides ===== */
+  .p-toast-message {
+    font-family: var(--biokit-font-body);
+    box-shadow: var(--biokit-shadow-lg);
+    border-left-width: 4px;
+  }
+
+  .p-toast-message-icon {
+    font-size: 1.5rem;
+  }
+
+  .p-toast-summary {
+    font-weight: var(--biokit-font-weight-semibold);
+  }
+
+  /* ===== Menu & List Component Overrides ===== */
+  .p-menu,
+  .p-listbox {
+    box-shadow: var(--biokit-shadow-md);
+    border-radius: var(--biokit-radius-lg);
+  }
+
+  .p-listbox-option {
+    color: var(--fg-color);
+  }
+
+  .p-listbox-option-group {
+    color: var(--fg-color);
+    font-weight: var(--biokit-font-weight-semibold);
+  }
+
+  .p-menu-item:hover,
+  .p-listbox-option:hover {
+    background-color: var(--biokit-bg-secondary);
+  }
+
+  .p-menu-item.p-focus,
+  .p-listbox-option.p-focus {
+    background-color: var(--biokit-bg-tertiary);
+  }
+  
+  .p-listbox-option.p-disabled {
+    color: var(--biokit-text-tertiary);
+    opacity: 0.6;
+  }
+
+  /* ===== Tooltip Overrides ===== */
+  .p-tooltip {
+    font-family: var(--biokit-font-body);
+    font-size: var(--biokit-font-size-tiny);
+    box-shadow: var(--biokit-shadow-md);
+    border-radius: var(--biokit-radius-md);
+  }
+
+  /* ===== Panel & Card Component Overrides ===== */
+  .p-panel,
+  .p-card {
+    box-shadow: var(--biokit-shadow-sm);
+    border-radius: var(--biokit-radius-lg);
+  }
+
+  .p-panel-header,
+  .p-card-header {
+    font-family: var(--biokit-font-heading);
+    font-weight: var(--biokit-font-weight-semibold);
+  }
+
+  /* ===== Tabs Component Overrides ===== */
+  .p-tabview-nav-link {
+    font-family: var(--biokit-font-body);
+    font-weight: var(--biokit-font-weight-medium);
+    transition-duration: var(--biokit-duration-normal);
+  }
+
+  .p-tabview-nav-link:not(.p-disabled):hover {
+    color: var(--biokit-orange);
+  }
+
+  .p-tabview-ink-bar {
+    background-color: var(--biokit-orange);
+    height: 3px;
+  }
+
+  /* ===== Form Field States ===== */
+  /* Error state */
+  .p-invalid {
+    border-color: var(--biokit-error) !important;
+  }
+
+  .p-error {
+    color: var(--biokit-error);
+    font-size: var(--biokit-font-size-tiny);
+    margin-top: var(--biokit-spacing-xs);
+  }
+
+  /* ===== Scrollbar Styling ===== */
+  .p-scrollpanel {
+    color: var(--fg-color);
+  }
+  
+  .p-scrollpanel-bar {
+    background-color: var(--biokit-border-secondary);
+    border-radius: var(--biokit-radius-full);
+  }
+
+  .p-scrollpanel-bar:hover {
+    background-color: var(--biokit-orange);
+  }
+
+  /* ===== Loading States ===== */
+  .p-component-overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .dark-theme .p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* ===== Focus Visible States ===== */
+  .p-component:focus-visible {
+    outline: 2px solid var(--biokit-orange);
+    outline-offset: 2px;
+  }
+
+  /* ===== Transitions ===== */
+  .p-component {
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-duration: var(--biokit-duration-normal);
+    transition-timing-function: var(--biokit-easing-smooth);
+  }
+}
+
+/* ===== Sidebar Specific Overrides ===== */
+.comfy-vue-side-bar-container {
+  color: var(--fg-color);
+}
+
+.side-tool-bar-container .p-button-icon {
+  color: var(--fg-color);
+}
+
+/* ===== Dark Theme Specific Overrides ===== */
+.dark-theme {
+  /* Ensure sidebar buttons have proper text color */
+  .side-tool-bar-container .p-button.p-button-text {
+    color: var(--fg-color);
+  }
+  
+  .side-tool-bar-container .p-button.p-button-text:hover {
+    color: var(--biokit-orange);
+  }
+
+  /* Input components in dark mode */
+  .p-inputtext::placeholder,
+  .p-textarea::placeholder {
+    color: var(--biokit-text-tertiary);
+  }
+
+  /* Dialog in dark mode */
+  .p-dialog {
+    border: 1px solid var(--biokit-border-primary);
+  }
+
+  /* Toast in dark mode */
+  .p-toast-message {
+    border: 1px solid var(--biokit-border-primary);
+  }
+
+  /* Dropdown overlay in dark mode */
+  .p-select-overlay,
+  .p-dropdown-overlay {
+    border: 1px solid var(--biokit-border-primary);
+  }
+}
+
+/* ===== Utility Classes ===== */
+.text-muted {
+  color: var(--descrip-text);
+}
+
+/* ===== Animation Classes ===== */
+@keyframes biokit-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 83, 53, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 83, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 83, 53, 0);
+  }
+}
+
+.p-button-primary:focus {
+  animation: biokit-pulse 1.5s infinite;
+}
