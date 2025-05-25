@@ -21,30 +21,30 @@
 
   /* Primary button - simplified selectors */
   .p-button-primary {
-    background-color: #FF5335 !important;
-    border-color: #FF5335 !important;
-    color: #FFFFFF !important;
+    background-color: rgba(255, 83, 53, 0.2) !important;
+    border-color: rgba(255, 83, 53, 0.5) !important;
+    color: #FF5335 !important;
     padding: 12px 24px;
   }
   
 
   .p-button-primary:hover:not(:disabled) {
-    background-color: #E03D20 !important;
-    border-color: #E03D20 !important;
+    background-color: rgba(255, 83, 53, 0.3) !important;
+    border-color: rgba(224, 61, 32, 0.6) !important;
     transform: translateY(-1px);
     box-shadow: var(--biokit-shadow-md);
   }
 
   .p-button-primary:active:not(:disabled) {
-    background-color: #CC3015 !important;
-    border-color: #CC3015 !important;
+    background-color: rgba(255, 83, 53, 0.4) !important;
+    border-color: rgba(204, 48, 21, 0.7) !important;
     transform: translateY(0);
     box-shadow: var(--biokit-shadow-sm);
   }
   
   /* Primary icon-only buttons */
   .p-button-primary.p-button-icon-only {
-    background-color: #FF5335 !important;
+    background-color: rgba(255, 83, 53, 0.2) !important;
     padding: 0;
     width: 40px;
     height: 40px;
@@ -201,10 +201,10 @@
   .p-splitbutton-dropdown,
   .p-splitbutton .p-splitbutton-dropdown,
   .p-splitbutton .p-button.p-splitbutton-dropdown {
-    background: #FF5335 !important;
-    background-color: #FF5335 !important;
-    border-color: #FF5335 !important;
-    color: #FFFFFF !important;
+    background: rgba(255, 83, 53, 0.2) !important;
+    background-color: rgba(255, 83, 53, 0.2) !important;
+    border-color: rgba(255, 83, 53, 0.5) !important;
+    color: #FF5335 !important;
     min-height: 44px !important; /* Force full height */
     height: 100% !important;
   }
@@ -212,25 +212,25 @@
   .p-splitbutton-dropdown:not(:disabled):hover,
   .p-splitbutton .p-splitbutton-dropdown:not(:disabled):hover,
   .p-splitbutton .p-button.p-splitbutton-dropdown:not(:disabled):hover {
-    background: #E03D20 !important;
-    background-color: #E03D20 !important;
-    border-color: #E03D20 !important;
+    background: rgba(255, 83, 53, 0.3) !important;
+    background-color: rgba(255, 83, 53, 0.3) !important;
+    border-color: rgba(224, 61, 32, 0.6) !important;
   }
 
   .p-splitbutton-dropdown:not(:disabled):active,
   .p-splitbutton .p-splitbutton-dropdown:not(:disabled):active,
   .p-splitbutton .p-button.p-splitbutton-dropdown:not(:disabled):active {
-    background: #CC3015 !important;
-    background-color: #CC3015 !important;
-    border-color: #CC3015 !important;
+    background: rgba(255, 83, 53, 0.4) !important;
+    background-color: rgba(255, 83, 53, 0.4) !important;
+    border-color: rgba(204, 48, 21, 0.7) !important;
   }
   
-  /* Ensure dropdown icon is white */
+  /* Ensure dropdown icon is orange to match */
   .p-splitbutton-dropdown .p-icon,
   .p-splitbutton-dropdown svg,
   .p-splitbutton .p-splitbutton-dropdown .p-icon,
   .p-splitbutton .p-splitbutton-dropdown svg {
-    color: #FFFFFF !important;
+    color: #FF5335 !important;
     fill: currentColor !important;
   }
 
@@ -248,7 +248,7 @@
 
   /* Fix dropdown icon color and size */
   .p-splitbutton .p-splitbutton-dropdown .p-button-icon {
-    color: #FFFFFF;
+    color: #FF5335;
     font-size: 12px;
   }
 
