@@ -7,7 +7,7 @@
       <Toolbar class="border-x-0 border-t-0 rounded-none px-2 py-1 min-h-8">
         <template #start>
           <span
-            class="text-xs 2xl:text-sm truncate text-[var(--fg-color)]"
+            class="text-xs 2xl:text-sm truncate text-[var(--biokit-text-primary)]"
             :title="props.title"
           >
             {{ props.title.toUpperCase() }}

@@ -54,8 +54,8 @@
   /* Secondary button - simplified */
   .p-button-secondary:not(.side-bar-button) {
     background-color: transparent;
-    border: 2px solid var(--fg-color);
-    color: var(--fg-color);
+    border: 2px solid var(--biokit-text-primary);
+    color: var(--biokit-text-primary);
     padding: 10px 22px;
   }
 
@@ -82,7 +82,7 @@
     padding: 0;
     min-height: 40px;
     background-color: transparent;
-    color: var(--fg-color);
+    color: var(--biokit-text-primary);
   }
 
   /* Icon button borders */
@@ -144,6 +144,23 @@
     width: 48px;
     height: 48px;
     min-height: 48px;
+  }
+
+  /* Text buttons with secondary severity (icon-only buttons in sidebar tabs) */
+  .p-button-text.p-button-secondary {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--biokit-text-primary) !important;
+  }
+
+  .p-button-text.p-button-secondary:hover:not(:disabled) {
+    background-color: rgba(255, 83, 53, 0.1) !important;
+    color: var(--biokit-orange) !important;
+  }
+
+  .p-button-text.p-button-secondary:active:not(:disabled) {
+    background-color: rgba(255, 83, 53, 0.2) !important;
+    color: var(--biokit-orange) !important;
   }
 
   /* Button focus state */
