@@ -1,0 +1,247 @@
+/* BioKit Node Styling
+   This file contains node-specific styles for the ComfyUI canvas
+   Applies BioKit design system to LiteGraph nodes */
+
+/* ============================================
+   Node Typography
+   ============================================ */
+
+/* Apply Inter font to canvas text rendering */
+.lgraphcanvas {
+  --node-title-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --node-text-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  
+  /* Font sizes aligned with BioKit typography */
+  --node-title-size: 14px;
+  --node-text-size: 14px;
+  --node-subtext-size: 12px;
+  
+  /* Font weights */
+  --node-title-weight: 500; /* Medium for titles */
+  --node-text-weight: 400;  /* Regular for content */
+}
+
+/* ============================================
+   Node Color System
+   ============================================ */
+
+/* Node type-based color variations */
+:root {
+  /* Input nodes - lighter backgrounds */
+  --node-input-bg-light: #F5F5F5;
+  --node-input-bg-dark: #2A2A2A;
+  --node-input-border-light: #E0E0E0;
+  --node-input-border-dark: #404040;
+  
+  /* Output nodes - accent backgrounds */
+  --node-output-bg-light: #EFF6FF;
+  --node-output-bg-dark: #1E293B;
+  --node-output-border-light: #DBEAFE;
+  --node-output-border-dark: #334155;
+  
+  /* Processing nodes - default backgrounds */
+  --node-process-bg-light: #FFFFFF;
+  --node-process-bg-dark: #1A1A1A;
+  --node-process-border-light: #E0E0E0;
+  --node-process-border-dark: #333333;
+  
+  /* Control nodes - muted backgrounds */
+  --node-control-bg-light: #F9FAFB;
+  --node-control-bg-dark: #111111;
+  --node-control-border-light: #E5E7EB;
+  --node-control-border-dark: #2A2A2A;
+  
+  /* Special nodes - highlight backgrounds */
+  --node-special-bg-light: #FEF3C7;
+  --node-special-bg-dark: #422006;
+  --node-special-border-light: #FDE68A;
+  --node-special-border-dark: #92400E;
+}
+
+/* ============================================
+   Node Gradient Overlays
+   ============================================ */
+
+/* Subtle gradient definitions for depth */
+:root {
+  /* Light theme gradients */
+  --node-gradient-light: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(0, 0, 0, 0.02) 100%
+  );
+  
+  /* Dark theme gradients */
+  --node-gradient-dark: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.03) 0%, 
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  
+  /* Title bar gradients */
+  --node-title-gradient-light: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  
+  --node-title-gradient-dark: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+/* ============================================
+   Node Shadow Effects
+   ============================================ */
+
+/* Modern shadow definitions */
+:root {
+  /* Subtle shadows for light theme */
+  --node-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1), 
+                       0 1px 2px rgba(0, 0, 0, 0.06);
+  
+  /* Deeper shadows for dark theme */
+  --node-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.3), 
+                      0 1px 2px rgba(0, 0, 0, 0.2);
+  
+  /* Hover shadows */
+  --node-shadow-hover-light: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                             0 2px 4px rgba(0, 0, 0, 0.06);
+  
+  --node-shadow-hover-dark: 0 4px 8px rgba(0, 0, 0, 0.4), 
+                            0 2px 4px rgba(0, 0, 0, 0.3);
+  
+  /* Selected node glow */
+  --node-shadow-selected-light: 0 0 0 2px var(--biokit-primary),
+                                0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  --node-shadow-selected-dark: 0 0 0 2px var(--biokit-primary),
+                               0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   Node State Colors
+   ============================================ */
+
+:root {
+  /* Executing state */
+  --node-executing-bg-light: #FEF3C7;
+  --node-executing-bg-dark: #451A03;
+  --node-executing-border: #F59E0B;
+  
+  /* Error state */
+  --node-error-bg-light: #FEE2E2;
+  --node-error-bg-dark: #7F1D1D;
+  --node-error-border: #EF4444;
+  
+  /* Success state */
+  --node-success-bg-light: #D1FAE5;
+  --node-success-bg-dark: #064E3B;
+  --node-success-border: #10B981;
+  
+  /* Bypass state */
+  --node-bypass-bg-light: #F3F4F6;
+  --node-bypass-bg-dark: #1F2937;
+  --node-bypass-opacity: 0.5;
+}
+
+/* ============================================
+   Text Contrast Improvements
+   ============================================ */
+
+:root {
+  /* Ensure proper contrast ratios */
+  --node-title-color-light: #1A1A1A;
+  --node-title-color-dark: #FFFFFF;
+  
+  --node-text-color-light: #4B5563;
+  --node-text-color-dark: #D1D5DB;
+  
+  --node-subtext-color-light: #6B7280;
+  --node-subtext-color-dark: #9CA3AF;
+  
+  /* Widget text colors */
+  --node-widget-text-light: #1F2937;
+  --node-widget-text-dark: #F3F4F6;
+  
+  --node-widget-label-light: #6B7280;
+  --node-widget-label-dark: #9CA3AF;
+}
+
+/* ============================================
+   Shape-specific Styling
+   ============================================ */
+
+/* Round shape enhancements */
+.round-node {
+  --node-corner-radius: 12px;
+  --node-inner-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Card shape enhancements */
+.card-node {
+  --node-corner-radius: 8px;
+  --node-card-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --node-card-shadow-dark: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Box shape enhancements */
+.box-node {
+  --node-corner-radius: 4px;
+  --node-box-border-width: 1px;
+  --node-box-inner-border: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Category-based Node Colors
+   ============================================ */
+
+/* Define colors for common node categories */
+:root {
+  /* Loaders */
+  --node-loader-accent: #3B82F6; /* Blue */
+  
+  /* Samplers */
+  --node-sampler-accent: #8B5CF6; /* Purple */
+  
+  /* Conditioning */
+  --node-conditioning-accent: #EC4899; /* Pink */
+  
+  /* Latent */
+  --node-latent-accent: #A855F7; /* Violet */
+  
+  /* Image */
+  --node-image-accent: #06B6D4; /* Cyan */
+  
+  /* Model */
+  --node-model-accent: #8B5CF6; /* Purple */
+  
+  /* Clip */
+  --node-clip-accent: #F59E0B; /* Amber */
+  
+  /* VAE */
+  --node-vae-accent: #EF4444; /* Red */
+  
+  /* Control */
+  --node-control-accent: #10B981; /* Emerald */
+  
+  /* Utility */
+  --node-utility-accent: #6B7280; /* Gray */
+}
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+
+/* Use CSS containment for better performance */
+.lgraphnode {
+  contain: layout style;
+}
+
+/* Hardware acceleration hints */
+.lgraphcanvas {
+  will-change: transform;
+}
+
+/* Reduce repaints during animations */
+.node-animating {
+  will-change: opacity, transform;
+}

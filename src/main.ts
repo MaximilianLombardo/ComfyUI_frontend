@@ -11,6 +11,7 @@ import { createApp } from 'vue'
 import { VueFire, VueFireAuth } from 'vuefire'
 
 import '@/assets/css/biokit-components.css'
+import '@/assets/css/biokit-nodes.css'
 import '@/assets/css/biokit-primevue-overrides.css'
 import '@/assets/css/biokit-theme.css'
 import '@/assets/css/biokit-variables.css'
